@@ -1,6 +1,5 @@
 .main-div {
   display: grid;
-  grid-template-rows: 2fr 1fr;
   grid-column: 2;
-  grid-row: 1;
+  grid-row: 2;
 }
