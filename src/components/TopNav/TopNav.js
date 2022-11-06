@@ -3,16 +3,16 @@ import "./TopNav.css";
 function TopNav() {
   return (
     <div class="top-nav">
-      <a class="active button" href="#home">
+      <a class="active button" href="#transfer">
         Transfer
       </a>
-      <a class="button" href="#news">
+      <a class="button" href="#hold">
         Hold
       </a>
-      <a class="button" href="#contact">
+      <a class="button" href="#watch">
         Watch
       </a>
-      <a class="button" href="#about">
+      <a class="button" href="#scan">
         Scan
       </a>
     </div>

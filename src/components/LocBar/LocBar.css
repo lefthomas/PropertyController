@@ -1,2 +1,16 @@
 .loc-bar {
+  background-color: #ececec;
+  font-size: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.button {
+  text-decoration: none;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

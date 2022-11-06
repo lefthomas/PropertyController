@@ -1,12 +1,12 @@
 import "./Main.css";
 import TopNav from "../TopNav/TopNav";
-import TransTabs from "../LocBar/LocBar";
+import LocBar from "../LocBar/LocBar";
 
 function Main() {
   return (
     <div className="main-div">
       <TopNav />
-      <TransTabs />
+      <LocBar />
     </div>
   );
 }

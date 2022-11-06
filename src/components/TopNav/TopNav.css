@@ -1,6 +1,6 @@
 .top-nav {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   font-size: 40px;
   text-decoration: none;
 }
@@ -8,4 +8,7 @@
 .button {
   text-decoration: none;
   color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
