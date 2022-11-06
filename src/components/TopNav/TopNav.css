@@ -1,0 +1,11 @@
+.top-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  font-size: 40px;
+  text-decoration: none;
+}
+
+.button {
+  text-decoration: none;
+  color: #000000;
+}
