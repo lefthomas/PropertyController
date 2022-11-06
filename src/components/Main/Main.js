@@ -1,12 +1,12 @@
 import "./Main.css";
 import LocBar from "../LocBar/LocBar";
-import BSQtoLWH from "../NotBooked/NotBooked";
+import NotBooked from "../NotBooked/NotBooked";
 
 function Main() {
   return (
     <div className="main-div">
       <LocBar />
-      <BSQtoLWH />
+      <NotBooked />
     </div>
   );
 }
