@@ -3,13 +3,13 @@ import "./LocBar.css";
 function LocBar() {
   return (
     <div class="loc-bar">
-      <a class="active button" href="#BSQto">
+      <a class="active loc-bar-btn" href="#BSQto">
         BSQ to LWH
       </a>
-      <a class="button" href="#LWHto">
+      <a class="loc-bar-btn" href="#LWHto">
         LWH to BSQ
       </a>
-      <a class="button" href="#Archive">
+      <a class="loc-bar-btn" href="#Archive">
         Archive
       </a>
     </div>

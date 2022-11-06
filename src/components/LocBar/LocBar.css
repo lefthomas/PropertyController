@@ -5,9 +5,10 @@
   grid-template-columns: repeat(3, 1fr);
   border-radius: 5px;
   margin-top: 10px;
+  padding: 2rem 1rem;
 }
 
-.button {
+.loc-bar-btn {
   text-decoration: none;
   color: #000000;
   display: flex;
