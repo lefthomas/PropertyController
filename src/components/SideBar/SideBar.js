@@ -1,7 +1,14 @@
 import "./SideBar.css";
+import GlanceBox from "../GlanceBox/GlanceBox";
 
 function SideBar() {
-  return <div className="side-bar"> this is rendering from side-bar</div>;
+  return (
+    <div className="side-bar">
+      <p>At a Glance</p>
+      <GlanceBox />
+      <GlanceBox />
+    </div>
+  );
 }
 
 export default SideBar;
