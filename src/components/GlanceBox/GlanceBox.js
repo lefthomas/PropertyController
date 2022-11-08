@@ -1,9 +1,9 @@
 import "./GlanceBox.css";
 
-function GlanceBox() {
+function GlanceBox(props) {
   return (
     <div class="glance-box">
-      <p>Next truck BSQ to LWH</p>
+      <p>Next truck {props.direction}</p>
       <p>No Transfer currently scheduled</p>
       <button>Book Transfer</button>
     </div>

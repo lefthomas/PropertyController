@@ -1,4 +1,9 @@
 .side-bar {
   grid-column: 1;
   grid-row: 2;
+  background-color: #ececec;
+}
+
+.side-bar-title {
+  font-size: 16px;
 }
