@@ -1,4 +1,7 @@
 .transfer-runner-container {
+  display: grid;
   background-color: #ececec;
   padding: 3rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: min-content 1fr;
 }
