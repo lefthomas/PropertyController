@@ -1,11 +1,18 @@
 .glance-box {
+  display: grid;
+  margin-bottom: 2rem;
 }
 
 .glance-box-direction {
   font-size: 20px;
+  margin-bottom: 0px;
 }
 
 .glance-box-not-booked {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   color: red;
 }
 
