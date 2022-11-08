@@ -1,6 +1,7 @@
 import "./TransferRunner.css";
 import TransferRunnerInfo from "./TransferRunnerInfo/TransferRunnerInfo";
 import TransferRunnerBtnBox from "./TransferRunnerBtnBox/TransferRunnerBtnBox";
+import TransferRunnerRequestBox from "./TransferRunnerRequestBox/TransferRunnerRequestBox";
 
 function TransferRunner() {
   return (
@@ -14,7 +15,7 @@ function TransferRunner() {
         additionDate={"27/02/2023"}
       />
       <TransferRunnerBtnBox />
-      <div class="transfer-runner-request-box"></div>
+      <TransferRunnerRequestBox />
       <div class="transfer-runner-list">
         <div class="transfer-runner-list-item"></div>
       </div>

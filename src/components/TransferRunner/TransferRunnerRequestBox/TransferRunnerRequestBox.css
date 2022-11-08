@@ -1,0 +1,35 @@
+.transfer-runner-btn-container {
+  display: grid;
+  grid-template-columns: repeat(1fr 3fr 1fr);
+}
+
+.transfer-runner-btn {
+  background-color: #d9d9d9;
+  border: none;
+  border-radius: 10px;
+  margin: 0.3rem;
+  font-size: 20px;
+}
+
+.transfer-runner-btn:hover {
+  color: #ececec;
+  transition: all 0.3s ease-out;
+}
+
+.transfer-runner-btn-pick {
+  grid-column: 1;
+}
+.transfer-runner-btn-email {
+  grid-column: 2;
+}
+.transfer-runner-btn-change {
+  grid-column: 1/3;
+}
+.transfer-runner-btn-completed {
+  grid-column: 1/3;
+  background-color: #1c825d;
+}
+.transfer-runner-btn-cancel {
+  grid-column: 1/3;
+  background-color: #f26363;
+}

@@ -3,7 +3,7 @@
   grid-row: 2;
   background-color: #ececec;
   padding: 1.5rem;
-  max-height: 25rem;
+  max-height: min-content;
   border-radius: 5px;
 }
 
