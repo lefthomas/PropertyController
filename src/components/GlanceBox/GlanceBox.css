@@ -28,4 +28,5 @@
 
 .glance-box-btn:hover {
   color: #0d3aaa;
+  transition: all 1s ease-out;
 }

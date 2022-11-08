@@ -15,6 +15,7 @@
 
 .transfer-runner-btn:hover {
   color: #ececec;
+  transition: all 0.3s ease-out;
 }
 
 .transfer-runner-btn-pick {

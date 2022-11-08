@@ -27,9 +27,11 @@
 }
 
 .top-nav-btn:hover {
+  transition: all 0.3s ease-out;
   color: grey;
 }
 
 .top-nav-active:hover {
+  transition: all 1s ease-out;
   color: black;
 }
