@@ -1,12 +1,14 @@
 import "./Main.css";
 import LocBar from "../LocBar/LocBar";
-import NotBooked from "../NotBooked/NotBooked";
+// import NotBooked from "../NotBooked/NotBooked";
+import TransferRunner from "../TransferRunner/TransferRunner";
 
 function Main() {
   return (
     <div className="main-div">
       <LocBar />
-      <NotBooked />
+      {/* <NotBooked /> */}
+      <TransferRunner />
     </div>
   );
 }
