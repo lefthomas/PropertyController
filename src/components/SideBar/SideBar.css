@@ -2,6 +2,9 @@
   grid-column: 1;
   grid-row: 2;
   background-color: #ececec;
+  padding: 1.5rem;
+  max-height: 25rem;
+  border-radius: 5px;
 }
 
 .side-bar-title {

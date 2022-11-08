@@ -1,0 +1,20 @@
+.glance-box {
+}
+
+.glance-box-direction {
+  font-size: 20px;
+}
+
+.glance-box-not-booked {
+  color: red;
+}
+
+.glance-box-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: #4b7bf6;
+  font-size: 20px;
+  background-color: #ececec;
+}
