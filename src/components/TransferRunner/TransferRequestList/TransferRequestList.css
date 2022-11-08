@@ -1,6 +1,10 @@
 .transfer-request-list-border {
   position: relative;
   border: 1px solid black;
+  grid-column: 1/ 3;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 1.5rem;
 }
 
 .transfer-request-list-department {
@@ -8,6 +12,8 @@
   background-color: #ececec;
   top: -1.65rem;
   left: 50px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .transfer-request-list-toggle {
@@ -15,4 +21,6 @@
   background-color: #ececec;
   top: -1.65rem;
   right: 50px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }

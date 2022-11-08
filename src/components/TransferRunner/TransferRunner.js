@@ -18,6 +18,7 @@ function TransferRunner() {
       <TransferRunnerBtnBox />
       <TransferRunnerRequestBox />
       <TransferRequestList />
+      <TransferRequestList />
     </div>
   );
 }
