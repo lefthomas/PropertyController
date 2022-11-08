@@ -5,7 +5,6 @@
   grid-template-columns: repeat(3, 1fr);
   border-radius: 5px;
   padding: 2rem 1rem;
-  max-height: 2rem;
 }
 
 .loc-bar-btn {
@@ -14,4 +13,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
+}
+
+.loc-bar-btn-active {
+  background-color: #62ad91;
+  color: white;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #1c825d;
+}
+
+.loc-bar-btn:hover {
+  color: grey;
+}
+
+.loc-bar-btn-active:hover {
+  color: black;
 }

@@ -24,3 +24,8 @@
   justify-self: center;
   border: none;
 }
+
+.not-booked-btn:hover {
+  color: #ececec;
+  background-color: #25c48a;
+}

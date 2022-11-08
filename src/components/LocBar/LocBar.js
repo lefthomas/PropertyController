@@ -3,7 +3,7 @@ import "./LocBar.css";
 function LocBar() {
   return (
     <div class="loc-bar">
-      <a class="active loc-bar-btn" href="#BSQto">
+      <a class="loc-bar-btn loc-bar-btn-active" href="#BSQto">
         BSQ to LWH
       </a>
       <a class="loc-bar-btn" href="#LWHto">
