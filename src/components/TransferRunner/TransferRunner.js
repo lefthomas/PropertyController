@@ -2,6 +2,7 @@ import "./TransferRunner.css";
 import TransferRunnerInfo from "./TransferRunnerInfo/TransferRunnerInfo";
 import TransferRunnerBtnBox from "./TransferRunnerBtnBox/TransferRunnerBtnBox";
 import TransferRunnerRequestBox from "./TransferRunnerRequestBox/TransferRunnerRequestBox";
+import TransferRequestList from "./TransferRequestList/TransferRequestList";
 
 function TransferRunner() {
   return (
@@ -16,9 +17,7 @@ function TransferRunner() {
       />
       <TransferRunnerBtnBox />
       <TransferRunnerRequestBox />
-      <div class="transfer-runner-list">
-        <div class="transfer-runner-list-item"></div>
-      </div>
+      <TransferRequestList />
     </div>
   );
 }
