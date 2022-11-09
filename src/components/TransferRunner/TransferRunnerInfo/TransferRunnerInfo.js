@@ -2,7 +2,7 @@ import "./TransferRunnerInfo.css";
 
 function TransferRunnerInfo(props) {
   return (
-    <div class="transfer-runner-info">
+    <div className="transfer-runner-info">
       <p>Coordinator {props.coordinator}</p>
       <p>Transfer Booked via {props.shipper}</p>
       <p>

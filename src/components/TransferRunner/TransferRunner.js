@@ -6,7 +6,7 @@ import TransferRequestList from "./TransferRequestList/TransferRequestList";
 
 function TransferRunner() {
   return (
-    <div class="transfer-runner-container">
+    <div className="transfer-runner-container">
       <TransferRunnerInfo
         coordinator={"Lewis Thomas"}
         shipper={"Met"}

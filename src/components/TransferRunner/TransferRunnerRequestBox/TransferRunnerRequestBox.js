@@ -2,14 +2,14 @@ import "./TransferRunnerRequestBox.css";
 
 function TransferRunnerRequestBox() {
   return (
-    <div class="transfer-runner-request-container">
-      <button class="transfer-runner-request-btn transfer-runner-request-btn-select">
+    <div className="transfer-runner-request-container">
+      <button className="transfer-runner-request-btn transfer-runner-request-btn-select">
         Select
       </button>
-      <button class="transfer-runner-request-btn transfer-runner-request-btn-request">
+      <button className="transfer-runner-request-btn transfer-runner-request-btn-request">
         Request Work
       </button>
-      <button class="transfer-runner-request-btn transfer-runner-request-btn-toggle">
+      <button className="transfer-runner-request-btn transfer-runner-request-btn-toggle">
         Expand / Collapse All
       </button>
     </div>

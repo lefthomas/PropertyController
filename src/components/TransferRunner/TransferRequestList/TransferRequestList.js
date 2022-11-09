@@ -3,9 +3,9 @@ import "./TransferRequestList.css";
 
 function TransferRequestList() {
   return (
-    <div class="transfer-request-list-border">
-      <p class="transfer-request-list-department">Department</p>
-      <p class="transfer-request-list-toggle">Collapse</p>
+    <div className="transfer-request-list-border">
+      <p className="transfer-request-list-department">Department</p>
+      <p className="transfer-request-list-toggle">Collapse</p>
       <TransferRequestListItem />
       <TransferRequestListItem />
       <TransferRequestListItem />
