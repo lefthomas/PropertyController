@@ -7,8 +7,6 @@ function TransferRequestList() {
       <p className="transfer-request-list-department">Department</p>
       <p className="transfer-request-list-toggle">Collapse</p>
       <TransferRequestListItem />
-      <TransferRequestListItem />
-      <TransferRequestListItem />
     </div>
   );
 }
