@@ -5,6 +5,7 @@
   grid-template-columns: repeat(3, 1fr);
   border-radius: 5px;
   padding: 2rem 1rem;
+  margin-bottom: 1rem;
 }
 
 .loc-bar-btn {
