@@ -1,7 +1,4 @@
 .main-div {
-  display: grid;
   grid-column: 2;
   grid-row: 2;
-  grid-auto-rows: auto 1fr;
-  row-gap: 2rem;
 }
