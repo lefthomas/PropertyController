@@ -33,7 +33,7 @@ function TransferModal(props) {
           <div className="transfer-modal-label-container">
             <label
               className="transfer-modal-label"
-              for="transfer-modal-shipper"
+              htmlFor="transfer-modal-shipper"
             >
               Shipper
             </label>
@@ -48,7 +48,7 @@ function TransferModal(props) {
           <div className="transfer-modal-label-container">
             <label
               className="transfer-modal-label"
-              for="transfer-modal-coordinator"
+              htmlFor="transfer-modal-coordinator"
             >
               Coordinator
             </label>
@@ -63,9 +63,9 @@ function TransferModal(props) {
           <div className="transfer-modal-label-container">
             <label
               className="transfer-modal-label"
-              for="transfer-modal-additions-date"
+              htmlFor="transfer-modal-additions-date"
             >
-              deadline for additions date
+              Deadline for additions date
             </label>
             <input
               type="date"
@@ -79,7 +79,7 @@ function TransferModal(props) {
           <div className="transfer-modal-label-container">
             <label
               className="transfer-modal-label"
-              for="transfer-modal-additions-time"
+              htmlFor="transfer-modal-additions-time"
             >
               Deadline for additions time
             </label>
@@ -95,7 +95,7 @@ function TransferModal(props) {
           <div className="transfer-modal-label-container">
             <label
               className="transfer-modal-label"
-              for="transfer-modal-delivery-date"
+              htmlFor="transfer-modal-delivery-date"
             >
               Delivery Date
             </label>
@@ -111,7 +111,7 @@ function TransferModal(props) {
           <div className="transfer-modal-label-container">
             <label
               className="transfer-modal-label"
-              for="transfer-modal-delivery-time"
+              htmlFor="transfer-modal-delivery-time"
             >
               Delivery Time
             </label>
