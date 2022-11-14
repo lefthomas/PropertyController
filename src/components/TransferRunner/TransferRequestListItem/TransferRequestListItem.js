@@ -29,7 +29,7 @@ function TransferRequestListItem() {
 
   return data.getProperty.map(
     ({ artist, lot, objectNumber, saleNumber, title }) => (
-      <div className="transfer-request-list-item-container">
+      <div className="transfer-request-list-item-container" key={objectNumber}>
         <img
           src={`https://picsum.photos/id/${getRandomInt()}/100`}
           alt=""
