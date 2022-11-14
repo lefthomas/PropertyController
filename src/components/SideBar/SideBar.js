@@ -4,7 +4,7 @@ import GlanceBox from "../GlanceBox/GlanceBox";
 function SideBar() {
   return (
     <div className="side-bar">
-      <heading className="side-bar-title">At a Glance</heading>
+      <p className="side-bar-title">At a Glance</p>
       <GlanceBox direction={"BSQ to LWH"} />
       <GlanceBox direction={"LWH to BSQ"} />
     </div>

@@ -3,7 +3,7 @@ import "./NotBooked.css";
 function NotBooked() {
   return (
     <div className="not-booked-container">
-      <heading className="not-booked-info">Nothing Scheduled</heading>
+      <p className="not-booked-info">Nothing Scheduled</p>
       <button className="not-booked-btn">Schedule New Transfer</button>
     </div>
   );
