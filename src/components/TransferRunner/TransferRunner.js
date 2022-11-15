@@ -5,6 +5,11 @@ import TransferRunnerRequestBox from "./TransferRunnerRequestBox/TransferRunnerR
 import TransferRequestList from "./TransferRequestList/TransferRequestList";
 
 function TransferRunner() {
+  // TODO add in handling for nothing booked
+
+  // if (!transferID && transfer.complete = false) return(
+  //   <p className="not-booked-info">Nothing Scheduled</p>
+  // );
   return (
     <div className="transfer-runner-container">
       <TransferRunnerInfo
