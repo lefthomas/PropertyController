@@ -7,8 +7,8 @@ import DateTimePicker from "react-datetime-picker";
 function TransferModal(props) {
   const [shipper, setShipper] = useState("");
   const [coordinator, setCoordinator] = useState("");
-  const [additionsDate, setAdditionsDate] = useState("");
-  const [departureDate, setDepartureDate] = useState("");
+  const [additionsDate, setAdditionsDate] = useState(new Date());
+  const [departureDate, setDepartureDate] = useState(new Date());
 
   const CREATE_TRANSFER = gql`
     mutation Mutation(
@@ -18,6 +18,7 @@ function TransferModal(props) {
       $departureDate: Date
       $complete: Boolean
       $requestedProperty: [String]
+      $originLocation: String
     ) {
       createTransfer(
         shipper: $shipper
@@ -26,6 +27,7 @@ function TransferModal(props) {
         departureDate: $departureDate
         complete: $complete
         requestedProperty: $requestedProperty
+        originLocation: $originLocation
       ) {
         additionsDate
         complete
@@ -49,29 +51,32 @@ function TransferModal(props) {
         coordinator: coordinator,
         departureDate: departureDate,
         shipper: shipper,
+        originLocation: props.originLoc,
       },
     });
 
     props.close();
     setShipper("");
     setCoordinator("");
-    setAdditionsDate("");
-    setDepartureDate("");
+    setAdditionsDate(new Date());
+    setDepartureDate(new Date());
   };
 
   if (!props.open) return null;
   return ReactDom.createPortal(
+    // Form tag was causing an inconsistent focus error in Chrome that was causing submit to fail randomly so changed to div
+
     <div className="transfer-modal-overlay">
       <div className="transfer-modal-container">
         <h2 className="transfer-modal-header">Schedule New Transfer</h2>
-        <form className="transfer-modal-form" onSubmit={handleSubmit}>
+        <div className="transfer-modal-form">
           <div className="transfer-modal-label-container">
-            <label
+            <p
               className="transfer-modal-label"
               htmlFor="transfer-modal-shipper"
             >
               Shipper
-            </label>
+            </p>
             <input
               name="transfer-modal-shipper"
               id="transfer-modal-shipper"
@@ -81,12 +86,12 @@ function TransferModal(props) {
             />
           </div>
           <div className="transfer-modal-label-container">
-            <label
+            <p
               className="transfer-modal-label"
               htmlFor="transfer-modal-coordinator"
             >
               Coordinator
-            </label>
+            </p>
             <input
               name="transfer-modal-coordinator"
               id="transfer-modal-coordinator"
@@ -96,11 +101,14 @@ function TransferModal(props) {
             />
           </div>
 
-          <div className="transfer-modal-label-container">
-            <label className="transfer-modal-label">
+          <div
+            className="transfer-modal-label-container"
+            name="additions-date-container"
+          >
+            <p className="transfer-modal-label">
               Deadline for Additions
               <span className="transfer-modal-deadline"> - required</span>
-            </label>
+            </p>
             <DateTimePicker
               onChange={setAdditionsDate}
               value={additionsDate}
@@ -112,8 +120,11 @@ function TransferModal(props) {
               name={"additions-date-picker"}
             />
           </div>
-          <div className="transfer-modal-label-container">
-            <label className="transfer-modal-label">Departure Date</label>
+          <div
+            className="transfer-modal-label-container"
+            name="departure-date-container"
+          >
+            <p className="transfer-modal-label">Departure Date</p>
             <DateTimePicker
               onChange={setDepartureDate}
               value={departureDate}
@@ -128,6 +139,7 @@ function TransferModal(props) {
           <button
             type="submit"
             className="transfer-modal-btn transfer-modal-btn-confirm"
+            onClick={handleSubmit}
           >
             Confirm
           </button>
@@ -138,7 +150,7 @@ function TransferModal(props) {
           >
             Cancel
           </button>
-        </form>
+        </div>
       </div>
     </div>,
     document.getElementById("portal")

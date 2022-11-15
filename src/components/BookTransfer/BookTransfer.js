@@ -1,8 +1,8 @@
-import "./NotBooked.css";
+import "./BookTransfer.css";
 import React, { useState } from "react";
 import TransferModal from "../../modals/TransferModal/TransferModal";
 
-function NotBooked() {
+function BookTransfer(props) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => {
@@ -22,9 +22,13 @@ function NotBooked() {
       <button className="not-booked-btn" onClick={handleOpen}>
         Schedule New Transfer
       </button>
-      <TransferModal open={isOpen} close={handleClose} />
+      <TransferModal
+        open={isOpen}
+        close={handleClose}
+        originLoc={props.originLoc}
+      />
     </div>
   );
 }
 
-export default NotBooked;
+export default BookTransfer;

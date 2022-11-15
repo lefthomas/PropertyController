@@ -1,6 +1,6 @@
 import "./Main.css";
 import LocBar from "../LocBar/LocBar";
-import NotBooked from "../NotBooked/NotBooked";
+import BookTransfer from "../BookTransfer/BookTransfer";
 import TransferRunner from "../TransferRunner/TransferRunner";
 
 function Main() {
@@ -8,7 +8,7 @@ function Main() {
     <div className="main-div">
       <LocBar />
       <TransferRunner />
-      <NotBooked />
+      <BookTransfer originLoc={"LWH"} />
     </div>
   );
 }
