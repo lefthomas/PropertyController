@@ -1,3 +1,4 @@
+import { useMutation, gql } from "@apollo/client";
 import { useState } from "react";
 import "./TransferModal.css";
 import ReactDom from "react-dom";
@@ -9,19 +10,26 @@ function TransferModal(props) {
   const [additionsTime, setAdditionsTime] = useState("");
   const [deliveryDate, setDeliveryDate] = useState("");
   const [deliveryTime, setDeliveryTime] = useState("");
+
+  const CREATE_TRANSFER = gql`
+    mutation Mutation($shipper: String, $coordinator: String) {
+      createTransfer(shipper: $shipper, coordinator: $coordinator) {
+        shipper
+        coordinator
+      }
+    }
+  `;
+
+  const [newTransfer] = useMutation(CREATE_TRANSFER);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const transferObj = {
-      shipper,
-      coordinator,
-      additionsDate,
-      additionsTime,
-      deliveryDate,
-      deliveryTime,
-    };
 
-    console.log(transferObj);
+    newTransfer({ variables: { shipper: shipper, coordinator: coordinator } });
+
     props.close();
+    setShipper("");
+    setCoordinator("");
   };
 
   if (!props.open) return null;
