@@ -44,7 +44,6 @@ function TransferModal(props) {
     newTransfer({
       variables: {
         additionsDate: additionsDate,
-        complete: false,
         coordinator: coordinator,
         departureDate: departureDate,
         shipper: shipper,
