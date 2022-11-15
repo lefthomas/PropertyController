@@ -15,7 +15,7 @@ function TransferRunnerInfo(props) {
         Departing at {departureTime} on {departureDate}
       </p>
       <p className="transfer-runner-info-deadline">
-        Deadline for additions {additionTime} on {additionDate}
+        Deadline for Additions {additionTime} on {additionDate}
       </p>
     </div>
   );
