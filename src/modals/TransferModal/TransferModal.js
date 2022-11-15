@@ -11,10 +11,27 @@ function TransferModal(props) {
   const [departureDate, setDepartureDate] = useState(new Date());
 
   const CREATE_TRANSFER = gql`
-    mutation Mutation($shipper: String, $coordinator: String) {
-      createTransfer(shipper: $shipper, coordinator: $coordinator) {
-        shipper
+    mutation Mutation(
+      $shipper: String
+      $coordinator: String
+      $additionsDate: String
+      $departureDate: String
+      $requestedProperty: [String]
+      $complete: Boolean
+    ) {
+      createTransfer(
+        shipper: $shipper
+        coordinator: $coordinator
+        additionsDate: $additionsDate
+        departureDate: $departureDate
+        requestedProperty: $requestedProperty
+        complete: $complete
+      ) {
+        additionsDate
+        complete
         coordinator
+        departureDate
+        shipper
       }
     }
   `;
@@ -24,7 +41,15 @@ function TransferModal(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // newTransfer({ variables: { shipper: shipper, coordinator: coordinator } });
+    newTransfer({
+      variables: {
+        additionsDate: additionsDate,
+        complete: false,
+        coordinator: coordinator,
+        departureDate: departureDate,
+        shipper: shipper,
+      },
+    });
 
     props.close();
     setShipper("");
@@ -80,6 +105,7 @@ function TransferModal(props) {
               className={"transfer-modal-input"}
               calendarIcon={null}
               minDate={new Date()}
+              name={"additions-date-picker"}
             />
           </div>
           <div className="transfer-modal-label-container">
@@ -91,6 +117,7 @@ function TransferModal(props) {
               className={"transfer-modal-input"}
               calendarIcon={null}
               minDate={new Date()}
+              name={"departure-date-picker"}
             />
           </div>
 
