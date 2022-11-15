@@ -32,10 +32,8 @@ function TransferRunner() {
         <TransferRunnerInfo
           coordinator={coordinator}
           shipper={shipper}
-          travelTime={additionsDate}
-          travelDate={departureDate}
-          additionTime={additionsDate}
-          additionDate={departureDate}
+          additionDate={additionsDate}
+          departureDate={departureDate}
         />
         <TransferRunnerBtnBox />
         <TransferRunnerRequestBox />

@@ -6,9 +6,9 @@ function TransferRunnerInfo(props) {
       <p>Coordinator {props.coordinator}</p>
       <p>Transfer Booked via {props.shipper}</p>
       <p>
-        Traveling at {props.travelTime} on {props.travelDate}
+        Departing at {props.travelTime} on {props.departureDate}
       </p>
-      <p>
+      <p className="transfer-runner-info-deadline">
         Deadline for additions {props.additionTime} on {props.additionDate}
       </p>
     </div>

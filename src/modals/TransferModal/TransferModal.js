@@ -8,29 +8,31 @@ function TransferModal(props) {
   const [shipper, setShipper] = useState("");
   const [coordinator, setCoordinator] = useState("");
   const [additionsDate, setAdditionsDate] = useState("");
-  const [departureDate, setDepartureDate] = useState(new Date());
+  const [departureDate, setDepartureDate] = useState("");
 
   const CREATE_TRANSFER = gql`
     mutation Mutation(
       $shipper: String
       $coordinator: String
-      $additionsDate: String
-      $departureDate: String
-      $requestedProperty: [String]
+      $additionsDate: Date
+      $departureDate: Date
       $complete: Boolean
+      $requestedProperty: [String]
     ) {
       createTransfer(
         shipper: $shipper
         coordinator: $coordinator
         additionsDate: $additionsDate
         departureDate: $departureDate
-        requestedProperty: $requestedProperty
         complete: $complete
+        requestedProperty: $requestedProperty
       ) {
         additionsDate
         complete
         coordinator
         departureDate
+        originLocation
+        requestedProperty
         shipper
       }
     }
@@ -53,6 +55,8 @@ function TransferModal(props) {
     props.close();
     setShipper("");
     setCoordinator("");
+    setAdditionsDate("");
+    setDepartureDate("");
   };
 
   if (!props.open) return null;
@@ -95,6 +99,7 @@ function TransferModal(props) {
           <div className="transfer-modal-label-container">
             <label className="transfer-modal-label">
               Deadline for Additions
+              <span className="transfer-modal-deadline"> - required</span>
             </label>
             <DateTimePicker
               onChange={setAdditionsDate}
