@@ -7,9 +7,8 @@ import DateTimePicker from "react-datetime-picker";
 function TransferModal(props) {
   const [shipper, setShipper] = useState("");
   const [coordinator, setCoordinator] = useState("");
-  const [additionsDateTime, setAdditionsDateTime] = useState("");
-  const [deliveryDateTime, setDeliveryDateTime] = useState("");
-  const [value, onChange] = useState(new Date());
+  const [additionsDate, setAdditionsDate] = useState("");
+  const [deliveryDate, setDeliveryDate] = useState(new Date());
 
   const CREATE_TRANSFER = gql`
     mutation Mutation($shipper: String, $coordinator: String) {
@@ -27,8 +26,8 @@ function TransferModal(props) {
 
     // newTransfer({ variables: { shipper: shipper, coordinator: coordinator } });
 
-    console.log(additionsDateTime);
-    console.log(deliveryDateTime);
+    console.log(additionsDate);
+    console.log(deliveryDate);
 
     props.close();
     setShipper("");
@@ -73,31 +72,24 @@ function TransferModal(props) {
           </div>
 
           <div className="transfer-modal-label-container">
-            <label
-              className="transfer-modal-label"
-              htmlFor="transfer-modal-additions-time"
-            >
+            <label className="transfer-modal-label">
               Deadline for additions
             </label>
-            {/* <Datetime
-              id="transfer-modal-delivery-date"
-              inputProps={{
-                className: "transfer-modal-input",
-                name: "transfer-modal-delivery-date",
-              }}
-              isValidDate={valid}
-              onChange={console.log(input.name)}
-              closeOnSelect={true}
-            /> */}
+            <DateTimePicker
+              onChange={setAdditionsDate}
+              value={additionsDate}
+              disableClock={true}
+              required={true}
+            />
           </div>
           <div className="transfer-modal-label-container">
-            <label
-              className="transfer-modal-label"
-              htmlFor="transfer-modal-additions-time"
-            >
-              Delivery Date
-            </label>
-            <DateTimePicker onChange={onChange} value={value} />
+            <label className="transfer-modal-label">Delivery Date</label>
+            <DateTimePicker
+              onChange={setDeliveryDate}
+              value={deliveryDate}
+              disableClock={true}
+              className={"transfer-modal-input"}
+            />
           </div>
 
           <button
@@ -121,68 +113,3 @@ function TransferModal(props) {
 }
 
 export default TransferModal;
-
-/* <div className="transfer-modal-label-container">
-            <label
-              className="transfer-modal-label"
-              htmlFor="transfer-modal-additions-date"
-            >
-              Deadline for additions date
-            </label>
-            <input
-              type="date"
-              name="transfer-modal-additions-date"
-              id="transfer-modal-additions-date"
-              className="transfer-modal-input"
-              value={additionsDate}
-              onChange={(e) => setAdditionsDate(e.target.value)}
-            />
-          </div>
-          <div className="transfer-modal-label-container">
-            <label
-              className="transfer-modal-label"
-              htmlFor="transfer-modal-additions-time"
-            >
-              Deadline for additions time
-            </label>
-            <input
-              type="time"
-              name="transfer-modal-additions-time"
-              id="transfer-modal-additions-time"
-              className="transfer-modal-input"
-              value={additionsTime}
-              onChange={(e) => setAdditionsTime(e.target.value)}
-            />
-          </div>
-          <div className="transfer-modal-label-container">
-            <label
-              className="transfer-modal-label"
-              htmlFor="transfer-modal-delivery-date"
-            >
-              Delivery Date
-            </label>
-            <input
-              type="date"
-              name="transfer-modal-delivery-date"
-              id="transfer-modal-delivery-date"
-              className="transfer-modal-input"
-              value={deliveryDate}
-              onChange={(e) => setDeliveryDate(e.target.value)}
-            />
-          </div>
-          <div className="transfer-modal-label-container">
-            <label
-              className="transfer-modal-label"
-              htmlFor="transfer-modal-delivery-time"
-            >
-              Delivery Time
-            </label>
-            <input
-              type="time"
-              name="transfer-modal-delivery-time"
-              id="transfer-modal-delivery-time"
-              className="transfer-modal-input"
-              value={deliveryTime}
-              onChange={(e) => setDeliveryTime(e.target.value)}
-            />
-          </div> */
