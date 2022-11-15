@@ -2,14 +2,14 @@ import { useMutation, gql } from "@apollo/client";
 import { useState } from "react";
 import "./TransferModal.css";
 import ReactDom from "react-dom";
+import DateTimePicker from "react-datetime-picker";
 
 function TransferModal(props) {
   const [shipper, setShipper] = useState("");
   const [coordinator, setCoordinator] = useState("");
-  const [additionsDate, setAdditionsDate] = useState("");
-  const [additionsTime, setAdditionsTime] = useState("");
-  const [deliveryDate, setDeliveryDate] = useState("");
-  const [deliveryTime, setDeliveryTime] = useState("");
+  const [additionsDateTime, setAdditionsDateTime] = useState("");
+  const [deliveryDateTime, setDeliveryDateTime] = useState("");
+  const [value, onChange] = useState(new Date());
 
   const CREATE_TRANSFER = gql`
     mutation Mutation($shipper: String, $coordinator: String) {
@@ -25,7 +25,10 @@ function TransferModal(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    newTransfer({ variables: { shipper: shipper, coordinator: coordinator } });
+    // newTransfer({ variables: { shipper: shipper, coordinator: coordinator } });
+
+    console.log(additionsDateTime);
+    console.log(deliveryDateTime);
 
     props.close();
     setShipper("");
@@ -68,7 +71,58 @@ function TransferModal(props) {
               onChange={(e) => setCoordinator(e.target.value)}
             />
           </div>
+
           <div className="transfer-modal-label-container">
+            <label
+              className="transfer-modal-label"
+              htmlFor="transfer-modal-additions-time"
+            >
+              Deadline for additions
+            </label>
+            {/* <Datetime
+              id="transfer-modal-delivery-date"
+              inputProps={{
+                className: "transfer-modal-input",
+                name: "transfer-modal-delivery-date",
+              }}
+              isValidDate={valid}
+              onChange={console.log(input.name)}
+              closeOnSelect={true}
+            /> */}
+          </div>
+          <div className="transfer-modal-label-container">
+            <label
+              className="transfer-modal-label"
+              htmlFor="transfer-modal-additions-time"
+            >
+              Delivery Date
+            </label>
+            <DateTimePicker onChange={onChange} value={value} />
+          </div>
+
+          <button
+            type="submit"
+            className="transfer-modal-btn transfer-modal-btn-confirm"
+          >
+            Confirm
+          </button>
+          <button
+            type="button"
+            className="transfer-modal-btn transfer-modal-btn-cancel"
+            onClick={() => props.close()}
+          >
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>,
+    document.getElementById("portal")
+  );
+}
+
+export default TransferModal;
+
+/* <div className="transfer-modal-label-container">
             <label
               className="transfer-modal-label"
               htmlFor="transfer-modal-additions-date"
@@ -131,25 +185,4 @@ function TransferModal(props) {
               value={deliveryTime}
               onChange={(e) => setDeliveryTime(e.target.value)}
             />
-          </div>
-          <button
-            type="submit"
-            className="transfer-modal-btn transfer-modal-btn-confirm"
-          >
-            Confirm
-          </button>
-          <button
-            type="button"
-            className="transfer-modal-btn transfer-modal-btn-cancel"
-            onClick={() => props.close()}
-          >
-            Cancel
-          </button>
-        </form>
-      </div>
-    </div>,
-    document.getElementById("portal")
-  );
-}
-
-export default TransferModal;
+          </div> */
