@@ -20,12 +20,23 @@ const GET_TRANSFERS = gql`
 function TransferRunner() {
   const { loading, error, data } = useQuery(GET_TRANSFERS);
 
+  // function transferCompleteBooleanCheck() {
+  //   data.getTransfers.filter((transfer) => {
+  //     const complete = transfer.complete;
+  //     return complete;
+  //   });
+  // }
+
   if (loading) return <p>Loading...</p>;
 
-  // if (data.complete === false)
-  //   return <p className="not-booked-info">Nothing Scheduled</p>;
-
   if (error) return <p>Error</p>;
+
+  // if (
+  //   data.getTransfers === undefined ||
+  //   transferCompleteBooleanCheck() === true
+  // )
+  // return;
+  // <p className="not-booked-info">Nothing Scheduled</p>;
 
   return data.getTransfers.map(
     ({ shipper, coordinator, additionsDate, departureDate }) => (
