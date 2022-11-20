@@ -2,13 +2,15 @@ import "./TransferRequestListItem.css";
 import { useQuery, gql } from "@apollo/client";
 
 const GET_OBJECT = gql`
-  query GetProperty($amount: Int) {
-    getProperty(amount: $amount) {
-      artist
-      lot
-      objectNumber
-      saleNumber
-      title
+  query Property($id: ID!) {
+    getProperty(ID: $id) {
+      requestedProperty {
+        artist
+        lot
+        objectNumber
+        saleNumber
+        title
+      }
     }
   }
 `;
@@ -21,13 +23,13 @@ function getRandomInt(min, max) {
 
 function TransferRequestListItem() {
   const { loading, error, data } = useQuery(GET_OBJECT, {
-    variables: { amount: 3 },
+    variables: { id: "6378b7ac174b46872573ade0" },
   });
   if (loading) return <p>Loading...</p>;
 
   if (error) return <p>Error</p>;
 
-  return data.getProperty.map(
+  return data.getProperty.requestedProperty.map(
     ({ artist, lot, objectNumber, saleNumber, title }) => (
       <div className="transfer-request-list-item-container" key={objectNumber}>
         <img
