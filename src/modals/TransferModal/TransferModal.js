@@ -14,19 +14,17 @@ function TransferModal(props) {
     mutation Mutation(
       $shipper: String
       $coordinator: String
-      $additionsDate: Date
       $departureDate: Date
+      $additionsDate: Date
       $complete: Boolean
-      $requestedProperty: [String]
       $originLocation: String
     ) {
       createTransfer(
         shipper: $shipper
         coordinator: $coordinator
-        additionsDate: $additionsDate
         departureDate: $departureDate
+        additionsDate: $additionsDate
         complete: $complete
-        requestedProperty: $requestedProperty
         originLocation: $originLocation
       ) {
         additionsDate
@@ -34,7 +32,6 @@ function TransferModal(props) {
         coordinator
         departureDate
         originLocation
-        requestedProperty
         shipper
       }
     }
@@ -52,6 +49,7 @@ function TransferModal(props) {
         departureDate: departureDate,
         shipper: shipper,
         originLocation: props.originLoc,
+        requestedProperty: [],
       },
     });
 
