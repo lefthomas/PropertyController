@@ -6,13 +6,14 @@ import TransferRequestList from "./TransferRequestList/TransferRequestList";
 import { useQuery, gql } from "@apollo/client";
 
 const GET_TRANSFERS = gql`
-  query GetTransfers {
+  query getTransfers {
     getTransfers {
-      shipper
-      coordinator
       additionsDate
-      departureDate
       complete
+      coordinator
+      departureDate
+      shipper
+      _id
     }
   }
 `;
@@ -39,7 +40,7 @@ function TransferRunner() {
   // <p className="not-booked-info">Nothing Scheduled</p>;
 
   return data.getTransfers.map(
-    ({ shipper, coordinator, additionsDate, departureDate }) => (
+    ({ shipper, coordinator, additionsDate, departureDate, _id }) => (
       <div className="transfer-runner-container">
         <TransferRunnerInfo
           coordinator={coordinator}
@@ -49,7 +50,7 @@ function TransferRunner() {
         />
         <TransferRunnerBtnBox />
         <TransferRunnerRequestBox />
-        <TransferRequestList />
+        <TransferRequestList ID={_id} />
       </div>
     )
   );

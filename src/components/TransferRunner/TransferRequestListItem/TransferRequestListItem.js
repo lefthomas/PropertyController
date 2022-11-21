@@ -22,9 +22,9 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function TransferRequestListItem() {
+function TransferRequestListItem(props) {
   const { loading, error, data } = useQuery(GET_OBJECT, {
-    variables: { id: "6378b7ac174b46872573ade0" },
+    variables: { id: `${props.ID}` },
   });
   if (loading) return <p>Loading...</p>;
 
