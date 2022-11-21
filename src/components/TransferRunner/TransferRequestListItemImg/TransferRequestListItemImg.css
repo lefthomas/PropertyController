@@ -13,8 +13,12 @@
   z-index: 10;
   visibility: hidden;
   border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .transfer-request-list-item-img-enlarged-show {
   visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
 }
