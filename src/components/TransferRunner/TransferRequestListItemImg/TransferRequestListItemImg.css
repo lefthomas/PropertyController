@@ -1,0 +1,20 @@
+.transfer-request-list-item-img-thumbnail {
+  position: relative;
+}
+.transfer-request-list-item-img {
+  border-radius: 5px;
+}
+
+.transfer-request-list-item-img-enlarged {
+  position: absolute;
+  transform: translateY(-50%) translateX(10%);
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  visibility: hidden;
+  border-radius: 5px;
+}
+
+.transfer-request-list-item-img-enlarged-show {
+  visibility: visible;
+}

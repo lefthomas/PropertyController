@@ -1,5 +1,6 @@
 import "./TransferRequestListItem.css";
 import { useQuery, gql } from "@apollo/client";
+import TransferRequestListItemImg from "../TransferRequestListItemImg/TransferRequestListItemImg";
 
 const GET_OBJECT = gql`
   query Property($id: ID!) {
@@ -32,11 +33,8 @@ function TransferRequestListItem() {
   return data.getProperty.requestedProperty.map(
     ({ artist, lot, objectNumber, saleNumber, title }) => (
       <div className="transfer-request-list-item-container" key={objectNumber}>
-        <img
-          src={`https://picsum.photos/id/${getRandomInt()}/100`}
-          alt=""
-          className="transfer-request-list-item-img"
-        />
+        <TransferRequestListItemImg imgSrc={getRandomInt()} />
+
         <p className="transfer-request-list-item-">
           Sale: {saleNumber} <br />
           Lot: {lot} <br />
