@@ -30,3 +30,10 @@
   color: #0d3aaa;
   transition: all 1s ease-out;
 }
+
+.glance-box-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
