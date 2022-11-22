@@ -1,0 +1,8 @@
+.scan-div {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
