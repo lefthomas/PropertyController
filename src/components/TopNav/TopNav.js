@@ -1,21 +1,21 @@
 import "./TopNav.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function TopNav() {
   return (
     <div className="top-nav">
-      <Link className="top-nav-active top-nav-btn" to="/">
+      <NavLink className="top-nav-active top-nav-btn" to="/">
         Transfer
-      </Link>
-      <Link className="top-nav-btn" to="/hold">
+      </NavLink>
+      <NavLink className="top-nav-btn" to="/hold">
         Hold
-      </Link>
-      <Link className="top-nav-btn" to="/watch">
+      </NavLink>
+      <NavLink className="top-nav-btn" to="/watch">
         Watch
-      </Link>
-      <Link className="top-nav-btn" to="/scan">
+      </NavLink>
+      <NavLink className="top-nav-btn" to="/scan">
         Scan
-      </Link>
+      </NavLink>
     </div>
   );
 }

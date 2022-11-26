@@ -20,10 +20,11 @@
   padding: 0.2rem;
 }
 
-.top-nav-active {
+.active {
   background-color: #c4c1c1;
   color: white;
   border-radius: 10px;
+  transition: all 0.5s ease-out;
 }
 
 .top-nav-btn:hover {
@@ -31,7 +32,7 @@
   color: grey;
 }
 
-.top-nav-active:hover {
-  transition: all 1s ease-out;
+.active:hover {
+  transition: all 0.5s ease-out;
   color: black;
 }

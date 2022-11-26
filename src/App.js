@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<SideBar />} />
       </Routes>
       <Routes>
-        <Route path="/*" element={<Transfer />} />
+        <Route path="/" element={<Transfer />} />
         <Route path="/hold" element={<Hold />} />
         <Route path="/watch" element={<Watch />} />
         <Route path="/scan" element={<Scan />} />
