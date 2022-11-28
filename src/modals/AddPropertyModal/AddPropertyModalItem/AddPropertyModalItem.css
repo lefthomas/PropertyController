@@ -1,0 +1,7 @@
+.transfer-request-list-item-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin: 1rem;
+  background-color: #d9d9d9;
+  padding: 2rem;
+}

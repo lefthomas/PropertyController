@@ -1,4 +1,4 @@
-.transfer-modal-overlay {
+.property-modal-overlay {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -9,7 +9,7 @@
   z-index: 100;
 }
 
-.transfer-modal-container {
+.property-modal-container {
   position: fixed;
   top: 40%;
   left: 50%;
@@ -21,27 +21,29 @@
   border-radius: 5px;
 }
 
-.transfer-modal-header {
+.property-modal-header {
   padding: 0 1rem;
   margin-top: 0;
   margin-bottom: 0;
 }
-.transfer-modal-form {
+.property-modal-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-.transfer-modal-label-container {
+.property-modal-label-container {
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  border-radius: 5px;
+  border: none;
 }
 
-.transfer-modal-label {
+.property-modal-label {
   margin-bottom: 0.5rem;
 }
 
-.transfer-modal-input {
+.property-modal-input {
   border-radius: 5px;
   border: none;
   width: 400px;
@@ -49,7 +51,7 @@
   background-color: white;
 }
 
-.transfer-modal-btn {
+.property-modal-btn {
   margin: 2rem;
   margin-bottom: 0;
   border-radius: 5px;
@@ -59,14 +61,22 @@
   font-size: 24px;
 }
 
-.transfer-modal-btn-confirm {
+.property-modal-staged {
+  border: solid black 1px;
+}
+
+.property-modal-confirmed {
+  border: solid black 1px;
+}
+
+.property-modal-btn-confirm {
   background-color: #1c825d;
 }
 
-.transfer-modal-btn-cancel {
+.property-modal-btn-cancel {
   background-color: #ea5a5a;
 }
 
-.transfer-modal-deadline {
+.property-modal-deadline {
   color: #f50606;
 }
