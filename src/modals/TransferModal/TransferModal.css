@@ -49,6 +49,10 @@
   background-color: white;
 }
 
+.react-datetime-picker__wrapper {
+  border: none;
+}
+
 .transfer-modal-btn {
   margin: 2rem;
   margin-bottom: 0;
