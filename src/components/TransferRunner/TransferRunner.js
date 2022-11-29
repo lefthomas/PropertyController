@@ -38,7 +38,7 @@ function TransferRunner() {
           departureDate={departureDate}
         />
         <TransferRunnerBtnBox />
-        <TransferRunnerRequestBox />
+        <TransferRunnerRequestBox ID={_id} />
         <TransferRequestList ID={_id} />
       </div>
     )
