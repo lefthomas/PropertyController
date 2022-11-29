@@ -61,12 +61,22 @@
   font-size: 24px;
 }
 
+.property-modal-item-block-container {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
 .property-modal-staged {
-  border: solid black 1px;
+  background-color: #ececec;
+  border-radius: 5px;
+  padding: 2rem;
 }
 
 .property-modal-confirmed {
-  border: solid black 1px;
+  background-color: #ececec;
+  border-radius: 5px;
+  padding: 2rem;
 }
 
 .property-modal-btn-confirm {
