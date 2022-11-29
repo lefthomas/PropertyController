@@ -9,6 +9,14 @@
   z-index: 100;
 }
 
+.transfer-modal-wrapper {
+  border: none;
+}
+
+.react-datetime-picker__wrapper {
+  border: none !important;
+}
+
 .transfer-modal-container {
   position: fixed;
   top: 40%;
@@ -47,10 +55,6 @@
   width: 400px;
   height: 40px;
   background-color: white;
-}
-
-.react-datetime-picker__wrapper {
-  border: none;
 }
 
 .transfer-modal-btn {
