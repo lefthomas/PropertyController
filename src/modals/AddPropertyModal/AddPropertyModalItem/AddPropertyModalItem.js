@@ -4,13 +4,13 @@ import { useQuery, gql } from "@apollo/client";
 import { memo } from "react";
 
 const GET_OBJECT = gql`
-  query GetPropertyByObject($objectNumber: String) {
-    getPropertyByObject(objectNumber: $objectNumber) {
+  query GetPropertyByObject($objectNumbers: [String]) {
+    getPropertyByObject(objectNumbers: $objectNumbers) {
       artist
       lot
       objectNumber
-      saleNumber
       title
+      saleNumber
     }
   }
 `;
@@ -23,7 +23,7 @@ function getRandomInt(min, max) {
 
 function AddPropertyModalItem(props) {
   const { loading, error, data } = useQuery(GET_OBJECT, {
-    variables: { objectNumber: props.objectNumber },
+    variables: { objectNumbers: props.objectNumber },
   });
   if (loading) return <p>Loading...</p>;
 

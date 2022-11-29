@@ -2,8 +2,16 @@ import "./AddPropertyModal.css";
 import ReactDom from "react-dom";
 import { useState } from "react";
 import AddPropertyModalItem from "./AddPropertyModalItem/AddPropertyModalItem";
+import { useMutation, gql } from "@apollo/client";
+
+const ADD_WORKS_TO_TRANSFER = gql`
+  mutation Mutation($id: ID!, $transferInput: TransferInput) {
+    addWorkToTransfer(ID: $id, transferInput: $transferInput)
+  }
+`;
 
 function AddPropertyModal(props) {
+  const [addWorksToTransfer] = useMutation(ADD_WORKS_TO_TRANSFER);
   const [searchTerm, setSearchTerm] = useState("");
   const [stagedArray, setStagedArray] = useState([]);
   const [confirmedArray, setConfirmedArray] = useState([]);
@@ -17,6 +25,30 @@ function AddPropertyModal(props) {
     e.preventDefault();
     setConfirmedArray([...confirmedArray, ...stagedArray]);
     setStagedArray([]);
+  };
+
+  const addPropertyToTransfer = (e) => {
+    e.preventDefault();
+
+    addWorksToTransfer({
+      variables: {
+        id: props.ID,
+        transferInput: {
+          requestedProperty: [
+            {
+              artist: "lewis",
+              lot: "lewis",
+              objectNumber: "lewis",
+              saleNumber: "lewis",
+              title: "ewlis",
+            },
+          ],
+        },
+      },
+    });
+    props.close();
+    setStagedArray([]);
+    setConfirmedArray([]);
   };
 
   if (!props.open) return null;
@@ -53,6 +85,7 @@ function AddPropertyModal(props) {
             <button
               type="submit"
               className="property-modal-btn property-modal-btn-confirm"
+              onClick={addPropertyToTransfer}
             >
               Confirm
             </button>
