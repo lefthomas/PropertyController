@@ -3,6 +3,7 @@
   max-height: 10rem;
   background-color: #ececec;
   padding: 2rem;
+  border-radius: 5px;
 }
 
 .not-booked-info {
