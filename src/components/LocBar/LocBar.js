@@ -1,17 +1,32 @@
 import "./LocBar.css";
 
-function LocBar() {
+function LocBar(props) {
   return (
     <div className="loc-bar">
-      <a className="loc-bar-btn loc-bar-btn-active" href="#BSQto">
+      <button
+        className={
+          props.originLoc === "BSQ" ? "loc-bar-btn-active" : "loc-bar-btn"
+        }
+        onClick={() => props.toggle("BSQ")}
+      >
         BSQ to LWH
-      </a>
-      <a className="loc-bar-btn" href="#LWHto">
+      </button>
+      <button
+        className={
+          props.originLoc === "LWH" ? "loc-bar-btn-active" : "loc-bar-btn"
+        }
+        onClick={() => props.toggle("LWH")}
+      >
         LWH to BSQ
-      </a>
-      <a className="loc-bar-btn" href="#Archive">
+      </button>
+      <button
+        className={
+          props.originLoc === "Archive" ? "loc-bar-btn-active" : "loc-bar-btn"
+        }
+        onClick={() => props.toggle("Archive")}
+      >
         Archive
-      </a>
+      </button>
     </div>
   );
 }

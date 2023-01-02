@@ -10,11 +10,13 @@
 
 .loc-bar-btn {
   text-decoration: none;
+  border: none;
   color: #000000;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  font-size: 24px;
 }
 
 .loc-bar-btn-active {
@@ -23,6 +25,7 @@
   border-radius: 10px;
   border-style: solid;
   border-color: #1c825d;
+  font-size: 24px;
 }
 
 .loc-bar-btn:hover {
