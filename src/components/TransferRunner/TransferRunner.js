@@ -3,43 +3,57 @@ import TransferRunnerInfo from "./TransferRunnerInfo/TransferRunnerInfo";
 import TransferRunnerBtnBox from "./TransferRunnerBtnBox/TransferRunnerBtnBox";
 import TransferRunnerRequestBox from "./TransferRunnerRequestBox/TransferRunnerRequestBox";
 import TransferRequestList from "./TransferRequestList/TransferRequestList";
+import BookTransfer from "../BookTransfer/BookTransfer";
 import { useQuery, gql } from "@apollo/client";
 
 const GET_TRANSFERS = gql`
-  query getTransfers {
-    getTransfers {
+  query GetTransfers($originLocation: String) {
+    getTransfers(originLocation: $originLocation) {
+      _id
       additionsDate
       complete
       coordinator
       departureDate
       shipper
-      _id
     }
   }
 `;
 
-function TransferRunner() {
-  const { loading, error, data } = useQuery(GET_TRANSFERS);
+function TransferRunner({ originLoc }) {
+  const { loading, error, data } = useQuery(GET_TRANSFERS, {
+    variables: { originLocation: originLoc },
+  });
 
   if (loading) return <p>Loading...</p>;
 
   if (error) return <p>Error</p>;
 
+  if (originLoc === "Archive" && data.getTransfers.length === 0)
+    return <p className="not-booked-info">No Archived Shipments</p>;
+
   if (data.getTransfers.length === 0)
-    return <p className="not-booked-info">Nothing Scheduled</p>;
+    return (
+      <div>
+        <p className="not-booked-info">Nothing Scheduled</p>
+        <BookTransfer originLoc={originLoc} />
+      </div>
+    );
 
   return data.getTransfers.map(
     ({ shipper, coordinator, additionsDate, departureDate, _id }) => (
-      <div className="transfer-runner-container" key={_id}>
-        <TransferRunnerInfo
-          coordinator={coordinator}
-          shipper={shipper}
-          additionDate={additionsDate}
-          departureDate={departureDate}
-        />
-        <TransferRunnerBtnBox />
-        <TransferRunnerRequestBox ID={_id} />
-        <TransferRequestList ID={_id} />
+      <div key={_id}>
+        <div className="transfer-runner-container">
+          <TransferRunnerInfo
+            coordinator={coordinator}
+            shipper={shipper}
+            additionDate={additionsDate}
+            departureDate={departureDate}
+          />
+          <TransferRunnerBtnBox />
+          <TransferRunnerRequestBox ID={_id} />
+          <TransferRequestList ID={_id} />
+        </div>
+        {originLoc !== "Archive" && <BookTransfer originLoc={originLoc} />}
       </div>
     )
   );

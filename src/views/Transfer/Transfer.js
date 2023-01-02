@@ -1,14 +1,15 @@
 import "./Transfer.css";
 import LocBar from "../../components/LocBar/LocBar";
-import BookTransfer from "../../components/BookTransfer/BookTransfer";
 import TransferRunner from "../../components/TransferRunner/TransferRunner";
+import { useState } from "react";
 
 function Transfer() {
+  const [active, setActive] = useState("BSQ");
+
   return (
     <div className="transfer-div">
-      <LocBar />
-      <TransferRunner />
-      <BookTransfer originLoc={"BSQ"} />
+      <LocBar toggle={setActive} originLoc={active} />
+      <TransferRunner originLoc={active} />
     </div>
   );
 }
