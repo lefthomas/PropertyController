@@ -12,24 +12,28 @@
   text-decoration: none;
   border: none;
   color: #000000;
+  background-color: #ececec;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   font-size: 24px;
+  border-radius: 5px;
 }
 
 .loc-bar-btn-active {
   background-color: #62ad91;
   color: white;
-  border-radius: 10px;
+  border-radius: 5px;
   border-style: solid;
   border-color: #1c825d;
   font-size: 24px;
 }
 
 .loc-bar-btn:hover {
-  color: grey;
+  background-color: lightgrey;
   transition: all 0.3s ease-out;
 }
 
