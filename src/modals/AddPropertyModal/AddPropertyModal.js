@@ -1,8 +1,21 @@
 import "./AddPropertyModal.css";
 import ReactDom from "react-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddPropertyModalItem from "./AddPropertyModalItem/AddPropertyModalItem";
-import { useMutation, gql } from "@apollo/client";
+import AddPropertyModalSearch from "./AddPropertyModalSearch/AddPropertyModalSearch";
+import { useLazyQuery, useMutation, gql } from "@apollo/client";
+
+const GET_OBJECT = gql`
+  query GetPropertyByObject($objectNumbers: [String]) {
+    getPropertyByObject(objectNumbers: $objectNumbers) {
+      artist
+      lot
+      objectNumber
+      title
+      saleNumber
+    }
+  }
+`;
 
 const ADD_WORKS_TO_TRANSFER = gql`
   mutation Mutation($id: ID!, $transferInput: TransferInput) {
@@ -11,47 +24,51 @@ const ADD_WORKS_TO_TRANSFER = gql`
 `;
 
 function AddPropertyModal(props) {
-  const [addWorksToTransfer] = useMutation(ADD_WORKS_TO_TRANSFER);
   const [searchTerm, setSearchTerm] = useState("");
-  const [stagedArray, setStagedArray] = useState([]);
+  const [searchArray, setSearchArray] = useState([]);
   const [confirmedArray, setConfirmedArray] = useState([]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setStagedArray([...stagedArray, searchTerm]);
-  };
+  const [executeSearch, { data }] = useLazyQuery(GET_OBJECT);
+  const [addWorksToTransfer] = useMutation(ADD_WORKS_TO_TRANSFER);
+
+  useEffect(() => {
+    if (typeof data !== "undefined" && data != null)
+      if (data.getPropertyByObject.length > 0)
+        setSearchArray(data.getPropertyByObject);
+  }, [data]);
 
   const handleConfirmedObjs = (e) => {
     e.preventDefault();
-    setConfirmedArray([...confirmedArray, ...stagedArray]);
-    setStagedArray([]);
+    setConfirmedArray([...confirmedArray, ...searchArray]);
+    setSearchArray([]);
   };
 
   const addPropertyToTransfer = (e) => {
     e.preventDefault();
-
-    addWorksToTransfer({
-      variables: {
-        id: props.ID,
-        transferInput: {
-          requestedProperty: [
-            {
-              artist: "lewis",
-              lot: "lewis",
-              objectNumber: "lewis",
-              saleNumber: "lewis",
-              title: "ewlis",
-            },
-          ],
+    confirmedArray.map(({ artist, lot, objectNumber, saleNumber, title }) =>
+      addWorksToTransfer({
+        variables: {
+          id: props.ID,
+          transferInput: {
+            requestedProperty: [
+              {
+                artist: artist,
+                lot: lot,
+                objectNumber: objectNumber,
+                saleNumber: saleNumber,
+                title: title,
+              },
+            ],
+          },
         },
-      },
-    });
+      })
+    );
     props.close();
-    setStagedArray([]);
     setConfirmedArray([]);
   };
 
   if (!props.open) return null;
+
   return ReactDom.createPortal(
     // Form tag was causing an inconsistent focus error in Chrome that was causing submit to fail randomly so changed to div
 
@@ -60,26 +77,25 @@ function AddPropertyModal(props) {
         <h2 className="property-modal-header">Request Property for Transfer</h2>
 
         <div>
-          <form>
-            <p>Search by Object Number</p>
-            <input
-              type="text"
-              placeholder="search"
-              onChange={(e) => setSearchTerm(e.target.value)}
-              value={searchTerm}
-            />
-            <button onClick={handleSubmit}>Search</button>
-          </form>
+          <AddPropertyModalSearch
+            onQuery={setSearchTerm}
+            queryValue={searchTerm}
+          />
+          <button
+            onClick={() =>
+              executeSearch({
+                variables: { objectNumbers: searchTerm },
+              })
+            }
+          >
+            Search
+          </button>
           <div className="property-modal-staged">
-            {stagedArray.map((obj) => (
-              <AddPropertyModalItem objectNumber={obj} key={obj} />
-            ))}
+            <AddPropertyModalItem query={searchArray} />
             <button onClick={handleConfirmedObjs}>Add selected</button>
           </div>
           <div className="property-modal-confirmed">
-            {confirmedArray.map((obj) => (
-              <AddPropertyModalItem objectNumber={obj} key={obj} />
-            ))}
+            <AddPropertyModalItem query={confirmedArray} />
           </div>
           <div>
             <button
@@ -94,7 +110,6 @@ function AddPropertyModal(props) {
               className="property-modal-btn property-modal-btn-cancel"
               onClick={() => {
                 props.close();
-                setStagedArray([]);
                 setConfirmedArray([]);
               }}
             >
