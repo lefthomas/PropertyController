@@ -3,24 +3,46 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter } from "react-router-dom";
+import { AuthProvider } from "./context/authContext";
+
+const httpLink = createHttpLink({
+  uri: "http://localhost:5001/",
+});
+
+const authLink = setContext((_, { headers }) => {
+  return {
+    headers: {
+      ...headers,
+      authorization: localStorage.getItem("token") || "",
+    },
+  };
+});
 
 const client = new ApolloClient({
-  uri: "http://localhost:5001/",
+  link: authLink.concat(httpLink),
 
   cache: new InMemoryCache(),
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <ApolloProvider client={client}>
-        <App />
-      </ApolloProvider>
-    </BrowserRouter>
-  </React.StrictMode>
+  <AuthProvider>
+    <ApolloProvider client={client}>
+      <BrowserRouter>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </BrowserRouter>
+    </ApolloProvider>
+  </AuthProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
