@@ -5,3 +5,10 @@
   background-color: #d9d9d9;
   padding: 2rem;
 }
+
+.transfer-request-list-nothing-booked {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}

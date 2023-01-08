@@ -21,7 +21,6 @@ function getRandomInt(min, max) {
   max = Math.floor(1084);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
 function TransferRequestListItem(props) {
   const { loading, error, data } = useQuery(GET_OBJECT, {
     variables: { id: `${props.ID}` },
@@ -30,11 +29,19 @@ function TransferRequestListItem(props) {
 
   if (error) return <p>Error</p>;
 
+  if (data.getProperty.requestedProperty.length === 0)
+    return (
+      <p className="transfer-request-list-nothing-booked">
+        No works currently booked
+      </p>
+    );
+
   return data.getProperty.requestedProperty.map(
     ({ artist, lot, objectNumber, saleNumber, title }) => (
       <div className="transfer-request-list-item-container" key={objectNumber}>
+        {/* <p className="transfer-request-list-department">Department</p>
+<p className="transfer-request-list-toggle">Collapse</p> */}
         <TransferRequestListItemImg imgSrc={getRandomInt()} />
-
         <p className="transfer-request-list-item-">
           Sale: {saleNumber} <br />
           Lot: {lot} <br />
