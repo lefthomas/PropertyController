@@ -5,4 +5,11 @@
   align-items: center;
   justify-content: center;
   flex-flow: column;
+  display: grid;
+}
+
+.hold-div-title {
+  margin: 0;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
 }

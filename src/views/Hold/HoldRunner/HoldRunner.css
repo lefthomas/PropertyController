@@ -1,0 +1,10 @@
+.hold-runner-container {
+  display: grid;
+  background-color: #ececec;
+  padding: 3rem;
+  padding-bottom: 0;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: min-content 1fr;
+  margin-bottom: 2rem;
+  border-radius: 5px;
+}

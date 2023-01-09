@@ -1,0 +1,43 @@
+.hold-loc-bar {
+  background-color: #ececec;
+  font-size: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-radius: 5px;
+  padding: 2rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.hold-loc-bar-btn {
+  text-decoration: none;
+  border: none;
+  color: #000000;
+  background-color: #ececec;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  font-size: 24px;
+  border-radius: 5px;
+}
+
+.hold-loc-bar-btn-active {
+  background-color: #62ad91;
+  color: white;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #1c825d;
+  font-size: 24px;
+}
+
+.hold-loc-bar-btn:hover {
+  background-color: lightgrey;
+  transition: all 0.3s ease-out;
+}
+
+.hold-loc-bar-btn-active:hover {
+  color: black;
+  transition: all 1s ease-out;
+}
