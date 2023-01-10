@@ -20,10 +20,7 @@ function HoldRunnerRequestBox({ ID, destLoc }) {
 
   return (
     <div className="hold-runner-request-container">
-      <button
-        className="hold-runner-request-btn hold-runner-request-btn-request"
-        onClick={handleOpen}
-      >
+      <button className="hold-runner-request-btn-request" onClick={handleOpen}>
         Request Work
       </button>
       <AddPropertyModal

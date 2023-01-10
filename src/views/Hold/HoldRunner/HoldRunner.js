@@ -1,5 +1,5 @@
 import "./HoldRunner.css";
-import HoldRequestList from "./HoldRequestList/HoldRequestList";
+import HoldRequestListItem from "./HoldRequestListItem/HoldRequestListItem";
 import HoldRunnerRequestBox from "./HoldRunnerRequestBox/HoldRunnerRequestBox";
 import { gql, useQuery } from "@apollo/client";
 
@@ -26,9 +26,9 @@ function HoldRunner({ saleCode, destLoc }) {
 
   return results.getHoldList.map(({ _id }) => (
     <div key={_id}>
-      <HoldRunnerRequestBox ID={_id} destLoc={destLoc} />
       <div className="hold-runner-container">
-        <HoldRequestList ID={_id} destLoc={destLoc} />
+        <HoldRunnerRequestBox ID={_id} destLoc={destLoc} />
+        <HoldRequestListItem ID={_id} destLoc={destLoc} />
       </div>
     </div>
   ));

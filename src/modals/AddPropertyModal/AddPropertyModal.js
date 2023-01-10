@@ -105,30 +105,35 @@ function AddPropertyModal(props) {
 
     <div className="property-modal-overlay">
       <div className="property-modal-container">
-        <h2 className="property-modal-header">Request Property for Transfer</h2>
-
         <div>
-          <AddPropertyModalSearch
-            onQuery={setSearchTerm}
-            queryValue={searchTerm}
-          />
-          <button
-            onClick={() =>
-              executeSearch({
-                variables: { objectNumbers: searchTerm },
-              })
-            }
-          >
-            Search
-          </button>
+          <div className="property-modal-search-div">
+            <AddPropertyModalSearch
+              onQuery={setSearchTerm}
+              queryValue={searchTerm}
+            />
+            <button
+              className="property-modal-btn"
+              onClick={() =>
+                executeSearch({
+                  variables: { objectNumbers: searchTerm },
+                })
+              }
+            >
+              Search
+            </button>
+          </div>
+
           <div className="property-modal-staged">
             <AddPropertyModalItem query={searchArray} />
-            <button onClick={handleConfirmedObjs}>Add selected</button>
           </div>
+          <button className="property-modal-btn" onClick={handleConfirmedObjs}>
+            Add selected
+          </button>
+          <hr className="property-modal-hr-divide" />
           <div className="property-modal-confirmed">
             <AddPropertyModalItem query={confirmedArray} />
           </div>
-          <div>
+          <div className="property-modal-btn-div">
             <button
               type="submit"
               className="property-modal-btn property-modal-btn-confirm"

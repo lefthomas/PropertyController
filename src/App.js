@@ -9,6 +9,7 @@ import Scan from "./views/Scan/Scan";
 import NotFound from "./views/NotFound/NotFound";
 import SideBar from "./components/SideBar/SideBar";
 import TopNav from "./components/TopNav/TopNav";
+import HoldSideBar from "./views/Hold/HoldSideBar/HoldSideBar";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
@@ -19,6 +20,7 @@ function App() {
       <TopNav />
       <Routes>
         <Route path="/" element={<SideBar />} />
+        <Route path="/hold" element={<HoldSideBar />} />
       </Routes>
       <Routes>
         <Route path="/" element={<Transfer />} />

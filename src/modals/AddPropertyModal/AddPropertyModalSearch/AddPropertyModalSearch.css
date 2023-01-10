@@ -1,0 +1,15 @@
+.property-modal-search-container {
+  display: flex;
+  border: none;
+  outline: none;
+}
+
+.property-modal-search-label {
+  margin-right: 2rem;
+}
+
+.property-modal-search-input {
+  border: none;
+  background-color: #ececec;
+  height: min-content;
+}

@@ -56,10 +56,10 @@ function HoldRequestListItem({ ID, destLoc }) {
         {title}
       </p>
       <p className="hold-request-list-item-">Size</p>
-      <p className="hold-request-list-item-">Location</p>
       <p className="hold-request-list-item-">
         Requested by <br /> Lewis Thomas
       </p>
+      {/* <button className="hold-btn">Held</button> */}
     </div>
   ));
 }
