@@ -3,7 +3,7 @@ import { useQuery, gql } from "@apollo/client";
 import TransferRequestListItemImg from "../TransferRequestListItemImg/TransferRequestListItemImg";
 
 const GET_OBJECT = gql`
-  query Property($id: ID!) {
+  query Query($id: ID!) {
     getProperty(ID: $id) {
       requestedProperty {
         artist

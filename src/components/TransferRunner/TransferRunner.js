@@ -3,7 +3,6 @@ import TransferRunnerInfo from "./TransferRunnerInfo/TransferRunnerInfo";
 import TransferRunnerBtnBox from "./TransferRunnerBtnBox/TransferRunnerBtnBox";
 import TransferRunnerRequestBox from "./TransferRunnerRequestBox/TransferRunnerRequestBox";
 import TransferRequestList from "./TransferRequestList/TransferRequestList";
-import BookTransfer from "../BookTransfer/BookTransfer";
 import { useQuery, gql } from "@apollo/client";
 
 const GET_TRANSFERS = gql`
@@ -35,7 +34,6 @@ function TransferRunner({ originLoc }) {
     return (
       <div>
         <p className="not-booked-info">Nothing Scheduled</p>
-        <BookTransfer originLoc={originLoc} />
       </div>
     );
 
@@ -53,7 +51,7 @@ function TransferRunner({ originLoc }) {
           <TransferRunnerRequestBox ID={_id} />
           <TransferRequestList ID={_id} />
         </div>
-        {originLoc !== "Archive" && <BookTransfer originLoc={originLoc} />}
+        {/* {originLoc !== "Archive" && <BookTransfer originLoc={originLoc} />} */}
       </div>
     )
   );
