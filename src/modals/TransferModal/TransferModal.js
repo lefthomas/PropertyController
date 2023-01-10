@@ -88,7 +88,7 @@ function TransferModal(props) {
               className="transfer-modal-label"
               htmlFor="transfer-modal-coordinator"
             >
-              Coordinators
+              Coordinator
             </p>
             <input
               name="transfer-modal-coordinator"
