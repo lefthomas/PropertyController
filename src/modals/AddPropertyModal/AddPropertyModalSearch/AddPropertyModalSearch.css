@@ -5,11 +5,15 @@
 }
 
 .property-modal-search-label {
-  margin-right: 2rem;
+  margin: 1rem;
+  padding: 0.5rem;
 }
 
 .property-modal-search-input {
   border: none;
   background-color: #ececec;
-  height: min-content;
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: 300px;
 }

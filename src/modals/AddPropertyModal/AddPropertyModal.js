@@ -112,7 +112,7 @@ function AddPropertyModal(props) {
               queryValue={searchTerm}
             />
             <button
-              className="property-modal-btn"
+              className="property-modal-search-btn"
               onClick={() =>
                 executeSearch({
                   variables: { objectNumbers: searchTerm },
@@ -123,13 +123,17 @@ function AddPropertyModal(props) {
             </button>
           </div>
 
+          <p className="property-modal-staged-title">Search Results</p>
           <div className="property-modal-staged">
             <AddPropertyModalItem query={searchArray} />
           </div>
-          <button className="property-modal-btn" onClick={handleConfirmedObjs}>
+          <button
+            className="property-modal-btn-stage"
+            onClick={handleConfirmedObjs}
+          >
             Add selected
           </button>
-          <hr className="property-modal-hr-divide" />
+          <p className="property-modal-staged-title">Staged works</p>
           <div className="property-modal-confirmed">
             <AddPropertyModalItem query={confirmedArray} />
           </div>

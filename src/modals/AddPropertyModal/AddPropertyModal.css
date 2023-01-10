@@ -22,8 +22,8 @@
 }
 
 .property-modal-search-div {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 2fr min-content;
   margin-bottom: 0.5rem;
 }
 
@@ -45,8 +45,25 @@
   border: none;
 }
 
+.property-modal-search-btn {
+  height: min-content;
+  width: min-content;
+  padding: 0.5rem 3rem;
+  align-self: center;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.property-modal-btn-stage {
+  margin-top: 1rem;
+}
+
 .property-modal-label {
   margin-bottom: 0.5rem;
+}
+
+.property-modal-staged-title {
+  margin-bottom: 0.3rem;
 }
 
 .property-modal-input {
@@ -65,11 +82,9 @@
 }
 
 .property-modal-btn {
-  margin: 2rem;
   margin-bottom: 0;
   border-radius: 5px;
   border: none;
-  font-size: 24px;
 }
 
 .property-modal-btn-div {
@@ -97,11 +112,15 @@
 .property-modal-btn-confirm {
   background-color: #1c825d;
   padding: 1rem 8rem;
+  margin: 2rem;
+  font-size: 24px;
 }
 
 .property-modal-btn-cancel {
   background-color: #ea5a5a;
   padding: 1rem 8rem;
+  margin: 2rem;
+  font-size: 24px;
 }
 
 .property-modal-deadline {
