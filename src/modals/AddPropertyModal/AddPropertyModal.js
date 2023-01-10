@@ -23,6 +23,12 @@ const ADD_WORKS_TO_TRANSFER = gql`
   }
 `;
 
+const ADD_WORKS_TO_HOLD = gql`
+  mutation Mutation($id: ID!, $holdInput: HoldInput) {
+    addWorkToHold(ID: $id, holdInput: $holdInput)
+  }
+`;
+
 function AddPropertyModal(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchArray, setSearchArray] = useState([]);
@@ -30,6 +36,7 @@ function AddPropertyModal(props) {
 
   const [executeSearch, { data }] = useLazyQuery(GET_OBJECT);
   const [addWorksToTransfer] = useMutation(ADD_WORKS_TO_TRANSFER);
+  const [addWorksToHold] = useMutation(ADD_WORKS_TO_HOLD);
 
   useEffect(() => {
     if (typeof data !== "undefined" && data != null)
@@ -57,6 +64,30 @@ function AddPropertyModal(props) {
                 objectNumber: objectNumber,
                 saleNumber: saleNumber,
                 title: title,
+              },
+            ],
+          },
+        },
+      })
+    );
+    props.close();
+    setConfirmedArray([]);
+  };
+
+  const addPropertyToHold = (e) => {
+    e.preventDefault();
+    confirmedArray.map(({ artist, lot, objectNumber, title }) =>
+      addWorksToHold({
+        variables: {
+          id: props.ID,
+          holdInput: {
+            requestedProperty: [
+              {
+                artist: artist,
+                lot: lot,
+                objectNumber: objectNumber,
+                title: title,
+                keepLoc: props.destLoc,
               },
             ],
           },
@@ -101,7 +132,11 @@ function AddPropertyModal(props) {
             <button
               type="submit"
               className="property-modal-btn property-modal-btn-confirm"
-              onClick={addPropertyToTransfer}
+              onClick={
+                props.origin === "HOLD"
+                  ? addPropertyToHold
+                  : addPropertyToTransfer
+              }
             >
               Confirm
             </button>

@@ -4,12 +4,12 @@ import HoldLocBar from "./HoldLocBar/HoldLocBar";
 import HoldRunner from "./HoldRunner/HoldRunner";
 
 function Hold() {
-  const [active, setActive] = useState("BSQ");
+  const [active, setActive] = useState("keepBSQ");
   return (
     <div className="hold-div">
       <h1 className="hold-div-title">Request Holds for UK030123</h1>
-      <HoldLocBar toggle={setActive} originLoc={active} />
-      <HoldRunner holdLoc="Keep at BSQ" originLoc={active} />
+      <HoldLocBar toggle={setActive} destLoc={active} />
+      <HoldRunner destLoc={active} saleCode={"UK030123"} />
     </div>
   );
 }

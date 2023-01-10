@@ -1,25 +1,21 @@
 import "./HoldLocBar.css";
 
-function HoldLocBar(props) {
+function HoldLocBar({ destLoc, toggle }) {
   return (
     <div className="hold-loc-bar">
       <button
         className={
-          props.originLoc === "BSQ"
-            ? "hold-loc-bar-btn-active"
-            : "hold-loc-bar-btn"
+          destLoc === "keepBSQ" ? "hold-loc-bar-btn-active" : "hold-loc-bar-btn"
         }
-        onClick={() => props.toggle("BSQ")}
+        onClick={() => toggle("keepBSQ")}
       >
         Keep at BSQ
       </button>
       <button
         className={
-          props.originLoc === "LWH"
-            ? "hold-loc-bar-btn-active"
-            : "hold-loc-bar-btn"
+          destLoc === "keepLWH" ? "hold-loc-bar-btn-active" : "hold-loc-bar-btn"
         }
-        onClick={() => props.toggle("LWH")}
+        onClick={() => toggle("keepLWH")}
       >
         Send to LWH
       </button>

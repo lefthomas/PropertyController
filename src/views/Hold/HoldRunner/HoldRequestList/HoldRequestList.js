@@ -1,10 +1,10 @@
 import HoldRequestListItem from "../HoldRequestListItem/HoldRequestListItem";
 import "./HoldRequestList.css";
 
-function HoldRequestList(props) {
+function HoldRequestList({ ID, destLoc }) {
   return (
     <div className="hold-request-list-border">
-      <HoldRequestListItem ID={props.ID} />
+      <HoldRequestListItem ID={ID} destLoc={destLoc} />
     </div>
   );
 }

@@ -2,7 +2,7 @@ import AddPropertyModal from "../../../../modals/AddPropertyModal/AddPropertyMod
 import React, { useState } from "react";
 import "./HoldRunnerRequestBox.css";
 
-function HoldRunnerRequestBox(props) {
+function HoldRunnerRequestBox({ ID, destLoc }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => {
@@ -26,7 +26,13 @@ function HoldRunnerRequestBox(props) {
       >
         Request Work
       </button>
-      <AddPropertyModal ID={props.ID} open={isOpen} close={handleClose} />
+      <AddPropertyModal
+        ID={ID}
+        open={isOpen}
+        close={handleClose}
+        origin={"HOLD"}
+        destLoc={destLoc}
+      />
     </div>
   );
 }
