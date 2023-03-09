@@ -14,7 +14,7 @@ import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/authContext";
 
 const httpLink = createHttpLink({
-  uri: "http://localhost:5001/",
+  uri: "https://property-controller-db.herokuapp.com/",
 });
 
 const authLink = setContext((_, { headers }) => {
