@@ -1,15 +1,8 @@
 import "./HoldRunner.css";
 import HoldRequestListItem from "./HoldRequestListItem/HoldRequestListItem";
 import HoldRunnerRequestBox from "./HoldRunnerRequestBox/HoldRunnerRequestBox";
-import { gql, useQuery } from "@apollo/client";
-
-const GET_HOLDLIST = gql`
-  query GetHoldList($saleCode: String) {
-    getHoldList(saleCode: $saleCode) {
-      _id
-    }
-  }
-`;
+import { useQuery } from "@apollo/client";
+import { GET_HOLDLIST } from "../../../queries/queries";
 
 function HoldRunner({ saleCode, destLoc }) {
   const { loading, error, data } = useQuery(GET_HOLDLIST, {

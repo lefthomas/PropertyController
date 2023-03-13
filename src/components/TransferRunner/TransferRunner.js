@@ -3,20 +3,8 @@ import TransferRunnerInfo from "./TransferRunnerInfo/TransferRunnerInfo";
 import TransferRunnerBtnBox from "./TransferRunnerBtnBox/TransferRunnerBtnBox";
 import TransferRunnerRequestBox from "./TransferRunnerRequestBox/TransferRunnerRequestBox";
 import TransferRequestList from "./TransferRequestList/TransferRequestList";
-import { useQuery, gql } from "@apollo/client";
-
-const GET_TRANSFERS = gql`
-  query GetTransfers($originLocation: String) {
-    getTransfers(originLocation: $originLocation) {
-      _id
-      additionsDate
-      complete
-      coordinator
-      departureDate
-      shipper
-    }
-  }
-`;
+import { useQuery } from "@apollo/client";
+import { GET_TRANSFERS } from "../../queries/queries";
 
 function TransferRunner({ originLoc }) {
   const { loading, error, data } = useQuery(GET_TRANSFERS, {

@@ -1,23 +1,7 @@
 import "./HoldRequestListItem.css";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import TransferRequestListItemImg from "../../../../components/TransferRunner/TransferRequestListItemImg/TransferRequestListItemImg";
-
-const GET_OBJECT = gql`
-  query Query($id: ID!) {
-    getHoldProperty(ID: $id) {
-      requestedProperty {
-        artist
-        keepLoc
-        lot
-        markHeld
-        newRequest
-        objectNumber
-        title
-        saleNumber
-      }
-    }
-  }
-`;
+import { GET_HOLD_OBJECT } from "../../../../queries/queries";
 
 function getRandomInt(min, max) {
   min = Math.ceil(2);
@@ -25,7 +9,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 function HoldRequestListItem({ ID, destLoc }) {
-  const { loading, error, data } = useQuery(GET_OBJECT, {
+  const { loading, error, data } = useQuery(GET_HOLD_OBJECT, {
     variables: { id: `${ID}` },
   });
 

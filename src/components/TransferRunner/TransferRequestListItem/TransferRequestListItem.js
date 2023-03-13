@@ -1,20 +1,7 @@
 import "./TransferRequestListItem.css";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import TransferRequestListItemImg from "../TransferRequestListItemImg/TransferRequestListItemImg";
-
-const GET_OBJECT = gql`
-  query Query($id: ID!) {
-    getProperty(ID: $id) {
-      requestedProperty {
-        artist
-        lot
-        objectNumber
-        saleNumber
-        title
-      }
-    }
-  }
-`;
+import { GET_OBJECT } from "../../../queries/queries";
 
 function getRandomInt(min, max) {
   min = Math.ceil(2);

@@ -1,23 +1,7 @@
 import "./SideBar.css";
 import GlanceBox from "../GlanceBox/GlanceBox";
-import { gql, useQuery } from "@apollo/client";
-
-const GET_GLANCE_BOX = gql`
-  query GetGlanceBox($LWH: String, $BSQ: String) {
-    LWH: getGlanceBox(originLocation: $LWH) {
-      additionsDate
-      coordinator
-      shipper
-      _id
-    }
-    BSQ: getGlanceBox(originLocation: $BSQ) {
-      additionsDate
-      coordinator
-      shipper
-      _id
-    }
-  }
-`;
+import { useQuery } from "@apollo/client";
+import { GET_GLANCE_BOX } from "../../queries/queries";
 
 function SideBar() {
   const { loading, error, data } = useQuery(GET_GLANCE_BOX, {

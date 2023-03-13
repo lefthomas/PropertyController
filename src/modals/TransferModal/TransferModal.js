@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./TransferModal.css";
 import ReactDom from "react-dom";
 import DateTimePicker from "react-datetime-picker";
+import { GET_TRANSFERS } from "../../queries/queries";
 
 function TransferModal(props) {
   const [shipper, setShipper] = useState("");
@@ -51,6 +52,7 @@ function TransferModal(props) {
         originLocation: props.originLoc,
         requestedProperty: [],
       },
+      refetchQueries: [{ query: GET_TRANSFERS }],
     });
 
     props.close();
