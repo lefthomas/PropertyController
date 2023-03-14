@@ -69,10 +69,23 @@ const GET_HOLD_OBJECT = gql`
   }
 `;
 
+const GET_SEARCH_OBJECT = gql`
+  query GetPropertyByObject($objectNumbers: [String]) {
+    getPropertyByObject(objectNumbers: $objectNumbers) {
+      artist
+      lot
+      objectNumber
+      title
+      saleNumber
+    }
+  }
+`;
+
 export {
   GET_TRANSFERS,
   GET_GLANCE_BOX,
   GET_OBJECT,
   GET_HOLDLIST,
   GET_HOLD_OBJECT,
+  GET_SEARCH_OBJECT,
 };
