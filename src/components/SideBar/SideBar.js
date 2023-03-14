@@ -14,8 +14,16 @@ function SideBar() {
 
   return (
     <div className="side-bar">
-      <GlanceBox direction={"BSQ to LWH"} transferInfo={data.BSQ} />
-      <GlanceBox direction={"LWH to BSQ"} transferInfo={data.LWH} />
+      <GlanceBox
+        direction={"BSQ to LWH"}
+        transferInfo={data.BSQ}
+        originLoc={"BSQ"}
+      />
+      <GlanceBox
+        direction={"LWH to BSQ"}
+        transferInfo={data.LWH}
+        originLoc={"LWH"}
+      />
     </div>
   );
 }

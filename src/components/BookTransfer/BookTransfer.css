@@ -24,6 +24,17 @@
   align-self: center;
   justify-self: center;
   border: none;
+  transition: 0.5s;
+}
+
+.glance-box-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: #4b7bf6;
+  font-size: 20px;
+  background-color: #ececec;
 }
 
 .not-booked-btn:hover {

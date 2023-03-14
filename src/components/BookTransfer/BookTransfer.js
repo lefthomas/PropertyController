@@ -18,8 +18,11 @@ function BookTransfer(props) {
     document.body.style.overflow = "unset";
   };
   return (
-    <div className="not-booked-container">
-      <button className="not-booked-btn" onClick={handleOpen}>
+    <div className={props.glanceBox ? null : "not-booked-container"}>
+      <button
+        className={props.glanceBox ? "glance-box-btn" : "not-booked-btn"}
+        onClick={handleOpen}
+      >
         Schedule New Transfer
       </button>
       <TransferModal
