@@ -4,19 +4,7 @@ import { useState, useEffect } from "react";
 import AddPropertyModalItem from "./AddPropertyModalItem/AddPropertyModalItem";
 import AddPropertyModalSearch from "./AddPropertyModalSearch/AddPropertyModalSearch";
 import { useLazyQuery, useMutation, gql } from "@apollo/client";
-import { GET_OBJECT } from "../../queries/queries";
-
-const GET_OBJECT = gql`
-  query GetPropertyByObject($objectNumbers: [String]) {
-    getPropertyByObject(objectNumbers: $objectNumbers) {
-      artist
-      lot
-      objectNumber
-      title
-      saleNumber
-    }
-  }
-`;
+import { GET_OBJECT, GET_SEARCH_OBJECT } from "../../queries/queries";
 
 const ADD_WORKS_TO_TRANSFER = gql`
   mutation Mutation($id: ID!, $transferInput: TransferInput) {
@@ -35,11 +23,9 @@ function AddPropertyModal(props) {
   const [searchArray, setSearchArray] = useState([]);
   const [confirmedArray, setConfirmedArray] = useState([]);
 
-  const [executeSearch, { data }] = useLazyQuery(GET_OBJECT);
+  const [executeSearch, { data }] = useLazyQuery(GET_SEARCH_OBJECT);
   const [addWorksToTransfer] = useMutation(ADD_WORKS_TO_TRANSFER, {
-    refetchQueries: [
-      { query: GET_OBJECT, variables: { originLocation: props.originLoc } },
-    ],
+    refetchQueries: [{ query: GET_OBJECT, variables: { id: props.ID } }],
   });
   const [addWorksToHold] = useMutation(ADD_WORKS_TO_HOLD);
 
