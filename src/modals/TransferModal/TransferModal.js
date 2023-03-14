@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./TransferModal.css";
 import ReactDom from "react-dom";
 import DateTimePicker from "react-datetime-picker";
-import { GET_TRANSFERS } from "../../queries/queries";
+import { GET_TRANSFERS, GET_GLANCE_BOX } from "../../queries/queries";
 
 function TransferModal(props) {
   const [shipper, setShipper] = useState("");
@@ -38,7 +38,12 @@ function TransferModal(props) {
     }
   `;
 
-  const [newTransfer] = useMutation(CREATE_TRANSFER);
+  const [newTransfer] = useMutation(CREATE_TRANSFER, {
+    refetchQueries: [
+      { query: GET_TRANSFERS, variables: { originLocation: props.originLoc } },
+      { query: GET_GLANCE_BOX, variables: { LWH: "LWH", BSQ: "BSQ" } },
+    ],
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,7 +57,6 @@ function TransferModal(props) {
         originLocation: props.originLoc,
         requestedProperty: [],
       },
-      refetchQueries: [{ query: GET_TRANSFERS }],
     });
 
     props.close();
