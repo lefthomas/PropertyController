@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import AddPropertyModalItem from "./AddPropertyModalItem/AddPropertyModalItem";
 import AddPropertyModalSearch from "./AddPropertyModalSearch/AddPropertyModalSearch";
 import { useLazyQuery, useMutation, gql } from "@apollo/client";
+import { GET_OBJECT } from "../../queries/queries";
 
 const GET_OBJECT = gql`
   query GetPropertyByObject($objectNumbers: [String]) {
@@ -35,7 +36,11 @@ function AddPropertyModal(props) {
   const [confirmedArray, setConfirmedArray] = useState([]);
 
   const [executeSearch, { data }] = useLazyQuery(GET_OBJECT);
-  const [addWorksToTransfer] = useMutation(ADD_WORKS_TO_TRANSFER);
+  const [addWorksToTransfer] = useMutation(ADD_WORKS_TO_TRANSFER, {
+    refetchQueries: [
+      { query: GET_OBJECT, variables: { originLocation: props.originLoc } },
+    ],
+  });
   const [addWorksToHold] = useMutation(ADD_WORKS_TO_HOLD);
 
   useEffect(() => {
