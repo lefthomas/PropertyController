@@ -10,7 +10,7 @@ function getRandomInt(min, max) {
 }
 function TransferRequestListItem(props) {
   const { loading, error, data } = useQuery(GET_OBJECT, {
-    variables: { id: `${props.ID}` },
+    variables: { id: props.ID },
   });
   if (loading) return <p>Loading...</p>;
 
