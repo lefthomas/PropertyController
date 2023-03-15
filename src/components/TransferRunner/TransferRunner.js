@@ -35,7 +35,7 @@ function TransferRunner({ originLoc }) {
             additionDate={additionsDate}
             departureDate={departureDate}
           />
-          <TransferRunnerBtnBox />
+          <TransferRunnerBtnBox ID={_id} originLoc={originLoc} />
           <TransferRunnerRequestBox ID={_id} />
           <TransferRequestList ID={_id} />
         </div>
