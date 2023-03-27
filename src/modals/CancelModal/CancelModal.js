@@ -4,10 +4,10 @@ import { useMutation } from "@apollo/client";
 import { GET_TRANSFERS, GET_GLANCE_BOX } from "../../queries/queries";
 import { CANCEL_TRANSFER } from "../../mutations/mutations";
 
-function CancelModal(props) {
+function CancelModal({ originLoc, ID, close, open }) {
   const [addWorksToHold] = useMutation(CANCEL_TRANSFER, {
     refetchQueries: [
-      { query: GET_TRANSFERS, variables: { originLocation: props.originLoc } },
+      { query: GET_TRANSFERS, variables: { originLocation: originLoc } },
       { query: GET_GLANCE_BOX, variables: { LWH: "LWH", BSQ: "BSQ" } },
     ],
   });
@@ -17,14 +17,14 @@ function CancelModal(props) {
 
     addWorksToHold({
       variables: {
-        id: props.ID,
+        id: ID,
       },
     });
 
-    props.close();
+    close();
   };
 
-  if (!props.open) return null;
+  if (!open) return null;
 
   return ReactDom.createPortal(
     // Form tag was causing an inconsistent focus error in Chrome that was causing submit to fail randomly so changed to div
@@ -48,7 +48,7 @@ function CancelModal(props) {
             type="button"
             className="cancel-modal-btn cancel-modal-btn-cancel"
             onClick={() => {
-              props.close();
+              close();
             }}
           >
             Go Back

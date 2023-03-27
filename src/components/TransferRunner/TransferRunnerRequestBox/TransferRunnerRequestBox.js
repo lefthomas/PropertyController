@@ -2,7 +2,7 @@ import AddPropertyModal from "../../../modals/AddPropertyModal/AddPropertyModal"
 import React, { useState } from "react";
 import "./TransferRunnerRequestBox.css";
 
-function TransferRunnerRequestBox(props) {
+function TransferRunnerRequestBox({ ID }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => {
@@ -29,7 +29,7 @@ function TransferRunnerRequestBox(props) {
       >
         Request Work
       </button>
-      <AddPropertyModal ID={props.ID} open={isOpen} close={handleClose} />
+      <AddPropertyModal ID={ID} open={isOpen} close={handleClose} />
       <button className="transfer-runner-request-btn transfer-runner-request-btn-toggle">
         Expand / Collapse All
       </button>

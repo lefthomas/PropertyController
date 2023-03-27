@@ -2,7 +2,7 @@ import "./BookTransfer.css";
 import React, { useState } from "react";
 import TransferModal from "../../modals/TransferModal/TransferModal";
 
-function BookTransfer(props) {
+function BookTransfer({ glanceBox, originLoc }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => {
@@ -18,18 +18,14 @@ function BookTransfer(props) {
     document.body.style.overflow = "unset";
   };
   return (
-    <div className={props.glanceBox ? null : "not-booked-container"}>
+    <div className={glanceBox ? null : "not-booked-container"}>
       <button
-        className={props.glanceBox ? "glance-box-btn" : "not-booked-btn"}
+        className={glanceBox ? "glance-box-btn" : "not-booked-btn"}
         onClick={handleOpen}
       >
         Schedule New Transfer
       </button>
-      <TransferModal
-        open={isOpen}
-        close={handleClose}
-        originLoc={props.originLoc}
-      />
+      <TransferModal open={isOpen} close={handleClose} originLoc={originLoc} />
     </div>
   );
 }

@@ -1,10 +1,10 @@
 import TransferRequestListItem from "../TransferRequestListItem/TransferRequestListItem";
 import "./TransferRequestList.css";
 
-function TransferRequestList(props) {
+function TransferRequestList({ ID }) {
   return (
     <div className="transfer-request-list-border">
-      <TransferRequestListItem ID={props.ID} />
+      <TransferRequestListItem ID={ID} />
     </div>
   );
 }

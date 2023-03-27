@@ -3,24 +3,16 @@ import ReactDom from "react-dom";
 import { useState, useEffect } from "react";
 import AddPropertyModalItem from "./AddPropertyModalItem/AddPropertyModalItem";
 import AddPropertyModalSearch from "./AddPropertyModalSearch/AddPropertyModalSearch";
-import { useLazyQuery, useMutation } from "@apollo/client";
-import { GET_OBJECT, GET_SEARCH_OBJECT } from "../../queries/queries";
-import {
-  ADD_WORKS_TO_TRANSFER,
-  ADD_WORKS_TO_HOLD,
-} from "../../mutations/mutations";
+import { useLazyQuery } from "@apollo/client";
+import { GET_SEARCH_OBJECT } from "../../queries/queries";
 
-function AddPropertyModal(props) {
+function AddPropertyModal({ ID, open, close }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchArray, setSearchArray] = useState([]);
   const [confirmedArray, setConfirmedArray] = useState([]);
   const [active, setActive] = useState("search");
 
   const [executeSearch, { data }] = useLazyQuery(GET_SEARCH_OBJECT);
-  const [addWorksToTransfer] = useMutation(ADD_WORKS_TO_TRANSFER, {
-    refetchQueries: [{ query: GET_OBJECT, variables: { id: props.ID } }],
-  });
-  const [addWorksToHold] = useMutation(ADD_WORKS_TO_HOLD);
 
   useEffect(() => {
     if (typeof data !== "undefined" && data != null)
@@ -28,55 +20,7 @@ function AddPropertyModal(props) {
         setSearchArray(data.getPropertyByObject);
   }, [data]);
 
-  const addPropertyToTransfer = (e) => {
-    e.preventDefault();
-    confirmedArray.map(({ artist, lot, objectNumber, saleNumber, title }) =>
-      addWorksToTransfer({
-        variables: {
-          id: props.ID,
-          transferInput: {
-            requestedProperty: [
-              {
-                artist: artist,
-                lot: lot,
-                objectNumber: objectNumber,
-                saleNumber: saleNumber,
-                title: title,
-              },
-            ],
-          },
-        },
-      })
-    );
-    props.close();
-    setConfirmedArray([]);
-  };
-
-  const addPropertyToHold = (e) => {
-    e.preventDefault();
-    confirmedArray.map(({ artist, lot, objectNumber, title }) =>
-      addWorksToHold({
-        variables: {
-          id: props.ID,
-          holdInput: {
-            requestedProperty: [
-              {
-                artist: artist,
-                lot: lot,
-                objectNumber: objectNumber,
-                title: title,
-                keepLoc: props.destLoc,
-              },
-            ],
-          },
-        },
-      })
-    );
-    props.close();
-    setConfirmedArray([]);
-  };
-
-  if (!props.open) return null;
+  if (!open) return null;
 
   return ReactDom.createPortal(
     // Form tag was causing an inconsistent focus error in Chrome that was causing submit to fail randomly so changed to div
@@ -148,7 +92,7 @@ function AddPropertyModal(props) {
               <div>
                 <p className="property-modal-staged-title">Search Results</p>
                 <div className="property-modal-results-container">
-                  <AddPropertyModalItem query={searchArray} ID={props.ID} />
+                  <AddPropertyModalItem query={searchArray} ID={ID} />
                 </div>
               </div>
             )}
@@ -159,7 +103,7 @@ function AddPropertyModal(props) {
           type="button"
           className="property-modal-btn property-modal-btn-close"
           onClick={() => {
-            props.close();
+            close();
             setConfirmedArray([]);
           }}
         >

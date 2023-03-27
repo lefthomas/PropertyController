@@ -1,29 +1,25 @@
 import "./LocBar.css";
 
-function LocBar(props) {
+function LocBar({ originLoc, toggle }) {
   return (
     <div className="loc-bar">
       <button
-        className={
-          props.originLoc === "BSQ" ? "loc-bar-btn-active" : "loc-bar-btn"
-        }
-        onClick={() => props.toggle("BSQ")}
+        className={originLoc === "BSQ" ? "loc-bar-btn-active" : "loc-bar-btn"}
+        onClick={() => toggle("BSQ")}
       >
         BSQ to LWH
       </button>
       <button
-        className={
-          props.originLoc === "LWH" ? "loc-bar-btn-active" : "loc-bar-btn"
-        }
-        onClick={() => props.toggle("LWH")}
+        className={originLoc === "LWH" ? "loc-bar-btn-active" : "loc-bar-btn"}
+        onClick={() => toggle("LWH")}
       >
         LWH to BSQ
       </button>
       <button
         className={
-          props.originLoc === "Archive" ? "loc-bar-btn-active" : "loc-bar-btn"
+          originLoc === "Archive" ? "loc-bar-btn-active" : "loc-bar-btn"
         }
-        onClick={() => props.toggle("Archive")}
+        onClick={() => toggle("Archive")}
       >
         Archive
       </button>

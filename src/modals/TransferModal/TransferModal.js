@@ -6,7 +6,7 @@ import DateTimePicker from "react-datetime-picker";
 import { GET_TRANSFERS, GET_GLANCE_BOX } from "../../queries/queries";
 import { CREATE_TRANSFER } from "../../mutations/mutations";
 
-function TransferModal(props) {
+function TransferModal({ originLoc, close, open }) {
   const [shipper, setShipper] = useState("");
   const [coordinator, setCoordinator] = useState("");
   const [additionsDate, setAdditionsDate] = useState(new Date());
@@ -14,7 +14,7 @@ function TransferModal(props) {
 
   const [newTransfer] = useMutation(CREATE_TRANSFER, {
     refetchQueries: [
-      { query: GET_TRANSFERS, variables: { originLocation: props.originLoc } },
+      { query: GET_TRANSFERS, variables: { originLocation: originLoc } },
       { query: GET_GLANCE_BOX, variables: { LWH: "LWH", BSQ: "BSQ" } },
     ],
   });
@@ -28,19 +28,19 @@ function TransferModal(props) {
         coordinator: coordinator,
         departureDate: departureDate,
         shipper: shipper,
-        originLocation: props.originLoc,
+        originLocation: originLoc,
         requestedProperty: [],
       },
     });
 
-    props.close();
+    close();
     setShipper("");
     setCoordinator("");
     setAdditionsDate(new Date());
     setDepartureDate(new Date());
   };
 
-  if (!props.open) return null;
+  if (!open) return null;
   return ReactDom.createPortal(
     // Form tag was causing an inconsistent focus error in Chrome that was causing submit to fail randomly so changed to div
 
@@ -124,7 +124,7 @@ function TransferModal(props) {
           <button
             type="button"
             className="transfer-modal-btn transfer-modal-btn-cancel"
-            onClick={() => props.close()}
+            onClick={() => close()}
           >
             Cancel
           </button>
