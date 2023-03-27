@@ -1,11 +1,9 @@
 .loc-bar {
-  background-color: #ececec;
-  font-size: 24px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   border-radius: 5px;
-  padding: 2rem 1rem;
   margin-bottom: 1rem;
+  column-gap: 0.5rem;
 }
 
 .loc-bar-btn {
@@ -17,9 +15,7 @@
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  font-size: 24px;
+  font-size: 20px;
   border-radius: 5px;
 }
 
@@ -29,7 +25,7 @@
   border-radius: 5px;
   border-style: solid;
   border-color: #1c825d;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .loc-bar-btn:hover {
