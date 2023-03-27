@@ -28,17 +28,25 @@ function TransferRequestListItem(props) {
       <div className="transfer-request-list-item-container" key={objectNumber}>
         {/* <p className="transfer-request-list-department">Department</p>
 <p className="transfer-request-list-toggle">Collapse</p> */}
-        <TransferRequestListItemImg imgSrc={getRandomInt()} />
+        <TransferRequestListItemImg
+          imgSrc={getRandomInt()}
+          imgSize={100}
+          expandImgSize={400}
+        />
         <p className="transfer-request-list-item-">
           Sale: {saleNumber} <br />
           Lot: {lot} <br />
           Object No: {objectNumber}
         </p>
         <p className="transfer-request-list-item-">
-          {artist} <br />
-          {title}
+          {artist.length > 25 ? `${artist.substring(0, 25)}...` : artist} <br />
+          {title.length > 25 ? `${title.substring(0, 25)}...` : title}
         </p>
-        <p className="transfer-request-list-item-">Size</p>
+        <p className="transfer-request-list-item-">
+          Size
+          <br />
+          10x10x10cm
+        </p>
         <p className="transfer-request-list-item-">Location</p>
         <p className="transfer-request-list-item-">
           Requested by <br /> Lewis Thomas

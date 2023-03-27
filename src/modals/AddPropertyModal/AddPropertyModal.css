@@ -5,80 +5,133 @@
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  padding: 10rem;
   z-index: 100;
 }
 
 .property-modal-container {
   position: fixed;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 100;
+  z-index: 101;
   display: grid;
+  grid-template-rows: min-content min-content max-content min-content;
+  max-height: 80%;
+  width: 70%;
+  max-width: 90%;
   background-color: #d9d9d9;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 5px;
+  overflow: scroll;
+}
+
+.add-property-modal-select-container {
+  display: flex;
+  justify-content: center;
+  gap: 1%;
+}
+
+.property-modal-tab-btn {
+  width: 100%;
+  height: 4rem;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+}
+
+.property-modal-tab-btn-active {
+  background-color: #1c825d;
+}
+
+.add-property-modal-search-container {
+  background-color: #ececec;
+  border-radius: 5px;
+  padding: 1rem;
+  padding-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.add-property-modal-search-by-select {
+  border-radius: 5px;
+  width: min-content;
+  padding: 0.5rem;
+  outline: none;
+  border: 1px solid grey;
+  font-size: 14px;
 }
 
 .property-modal-search-div {
-  display: grid;
-  grid-template-columns: 2fr min-content;
-  margin-bottom: 0.5rem;
-}
-
-.property-modal-header {
-  padding: 0 1rem;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-.property-modal-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.property-modal-label-container {
   display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  border-radius: 5px;
-  border: none;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .property-modal-search-btn {
-  height: min-content;
-  width: min-content;
   padding: 0.5rem 3rem;
-  align-self: center;
   border: 1px solid grey;
   border-radius: 5px;
+  margin: 0.2rem;
+}
+.property-modal-search-btn:hover {
+  transition: all 0.5s ease-in-out;
+  color: lightgray;
+  border-color: lightgrey;
+  background-color: grey;
 }
 
-.property-modal-btn-stage {
-  margin-top: 1rem;
+.property-modal-search-btn:active {
+  background-color: lightgray;
+  transition: all 0.5s;
 }
 
-.property-modal-label {
-  margin-bottom: 0.5rem;
+.property-modal-not-on-inventory-container {
+  background-color: #ececec;
+  border-radius: 5px;
+  padding: 1rem;
+  padding-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  display: flex;
+}
+
+.property-modal-not-on-inventory-text-input {
+  width: 80%;
+  height: 6rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border: none;
+  background-color: white;
+  border-radius: 5px;
+  border: none;
+  overflow: auto;
+  outline: none;
+  box-shadow: none;
+  resize: none;
+  font: inherit;
+  padding: 1rem;
+}
+
+.property-modal-not-on-inventory-text-submit {
+  padding: 0.5rem 3rem;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 0.2rem;
+  height: min-content;
+  align-self: center;
+}
+.property-modal-not-on-inventory-text-submit:hover {
+  transition: all 0.5s ease-in-out;
+  color: lightgray;
+  border-color: lightgrey;
+  background-color: grey;
+}
+
+.property-modal-not-on-inventory-text-submit:active {
+  background-color: lightgray;
+  transition: all 0.5s;
 }
 
 .property-modal-staged-title {
   margin-bottom: 0.3rem;
-}
-
-.property-modal-input {
-  border-radius: 5px;
-  border: none;
-  width: 400px;
-  height: 40px;
-  background-color: white;
-}
-
-.property-modal-hr-divide {
-  border-width: 0;
-  background: rgb(33, 33, 33);
-  color: rgb(33, 33, 33);
-  height: 0.04em;
 }
 
 .property-modal-btn {
@@ -87,42 +140,25 @@
   border: none;
 }
 
-.property-modal-btn-div {
-  display: flex;
-}
-
-.property-modal-item-block-container {
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 0.5rem;
-}
-
 .property-modal-staged {
-  background-color: #ececec;
   border-radius: 5px;
   padding: 2rem;
 }
 
-.property-modal-confirmed {
-  background-color: #ececec;
+.property-modal-results-container {
   border-radius: 5px;
-  padding: 2rem;
+  overflow: scroll;
+  background-color: #ececec;
+  margin-top: 1rem;
 }
 
-.property-modal-btn-confirm {
-  background-color: #1c825d;
+.property-modal-btn-close {
+  background-color: #75707084;
   padding: 1rem 8rem;
-  margin: 2rem;
+  margin: 1rem;
   font-size: 24px;
-}
-
-.property-modal-btn-cancel {
-  background-color: #ea5a5a;
-  padding: 1rem 8rem;
-  margin: 2rem;
-  font-size: 24px;
-}
-
-.property-modal-deadline {
-  color: #f50606;
+  color: #ececec;
+  justify-self: center;
+  margin-bottom: 0;
+  height: 4rem;
 }

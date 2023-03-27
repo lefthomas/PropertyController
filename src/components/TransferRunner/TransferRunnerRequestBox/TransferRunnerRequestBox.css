@@ -12,7 +12,7 @@
   justify-self: start;
   align-self: center;
   height: 100%;
-  font-size: 20px;
+  font-size: 16px;
   padding: 1rem 2rem;
   background-color: #ececec;
   border: solid black 1px;
@@ -24,7 +24,7 @@
   align-self: center;
   height: 100%;
   width: 100%;
-  font-size: 24px;
+  font-size: 20px;
   padding: 1rem 3rem;
   background-color: #1c825d;
   border: none;
@@ -35,7 +35,7 @@
   justify-self: end;
   height: 100%;
   align-self: center;
-  font-size: 20px;
+  font-size: 16px;
   padding: 1rem 2rem;
   background-color: #ececec;
   border: solid black 1px;
