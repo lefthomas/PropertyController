@@ -4,19 +4,9 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 import { useForm } from "../../utilities/hook";
 import { useMutation } from "@apollo/client";
-import { gql } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
-const REGISTER_USER = gql`
-  mutation Mutation($registerInput: RegisterInput) {
-    registerUser(registerInput: $registerInput) {
-      email
-      username
-      token
-    }
-  }
-`;
+import { REGISTER_USER } from "../../mutations/mutations";
 
 function Register() {
   const context = useContext(AuthContext);

@@ -4,19 +4,9 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 import { useForm } from "../../utilities/hook";
 import { useMutation } from "@apollo/client";
-import { gql } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
-const LOGIN_USER = gql`
-  mutation login($loginInput: LoginInput) {
-    loginUser(loginInput: $loginInput) {
-      email
-      username
-      token
-    }
-  }
-`;
+import { LOGIN_USER } from "../../mutations/mutations";
 
 function Login() {
   const context = useContext(AuthContext);

@@ -1,13 +1,8 @@
 import "./CancelModal.css";
 import ReactDom from "react-dom";
-import { gql, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { GET_TRANSFERS, GET_GLANCE_BOX } from "../../queries/queries";
-
-const CANCEL_TRANSFER = gql`
-  mutation Mutation($id: ID) {
-    deleteTransfer(ID: $id)
-  }
-`;
+import { CANCEL_TRANSFER } from "../../mutations/mutations";
 
 function CancelModal(props) {
   const [addWorksToHold] = useMutation(CANCEL_TRANSFER, {

@@ -1,42 +1,16 @@
-import { useMutation, gql } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { useState } from "react";
 import "./TransferModal.css";
 import ReactDom from "react-dom";
 import DateTimePicker from "react-datetime-picker";
 import { GET_TRANSFERS, GET_GLANCE_BOX } from "../../queries/queries";
+import { CREATE_TRANSFER } from "../../mutations/mutations";
 
 function TransferModal(props) {
   const [shipper, setShipper] = useState("");
   const [coordinator, setCoordinator] = useState("");
   const [additionsDate, setAdditionsDate] = useState(new Date());
   const [departureDate, setDepartureDate] = useState(new Date());
-
-  const CREATE_TRANSFER = gql`
-    mutation Mutation(
-      $shipper: String
-      $coordinator: String
-      $departureDate: Date
-      $additionsDate: Date
-      $complete: Boolean
-      $originLocation: String
-    ) {
-      createTransfer(
-        shipper: $shipper
-        coordinator: $coordinator
-        departureDate: $departureDate
-        additionsDate: $additionsDate
-        complete: $complete
-        originLocation: $originLocation
-      ) {
-        additionsDate
-        complete
-        coordinator
-        departureDate
-        originLocation
-        shipper
-      }
-    }
-  `;
 
   const [newTransfer] = useMutation(CREATE_TRANSFER, {
     refetchQueries: [
