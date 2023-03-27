@@ -5,13 +5,26 @@ import AddPropertyModalItem from "./AddPropertyModalItem/AddPropertyModalItem";
 import AddPropertyModalSearch from "./AddPropertyModalSearch/AddPropertyModalSearch";
 import { useLazyQuery } from "@apollo/client";
 import { GET_SEARCH_OBJECT } from "../../queries/queries";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function AddPropertyModal({ ID, open, close }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchArray, setSearchArray] = useState([]);
-  const [confirmedArray, setConfirmedArray] = useState([]);
   const [active, setActive] = useState("search");
 
+  const notify = () => {
+    toast.success("Added work to transfer", {
+      position: "bottom-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
   const [executeSearch, { data }] = useLazyQuery(GET_SEARCH_OBJECT);
 
   useEffect(() => {
@@ -92,7 +105,15 @@ function AddPropertyModal({ ID, open, close }) {
               <div>
                 <p className="property-modal-staged-title">Search Results</p>
                 <div className="property-modal-results-container">
-                  <AddPropertyModalItem query={searchArray} ID={ID} />
+                  <AddPropertyModalItem
+                    query={searchArray}
+                    ID={ID}
+                    clear={() => {
+                      setSearchTerm("");
+                      setSearchArray([]);
+                      notify();
+                    }}
+                  />
                 </div>
               </div>
             )}
@@ -104,7 +125,6 @@ function AddPropertyModal({ ID, open, close }) {
           className="property-modal-btn property-modal-btn-close"
           onClick={() => {
             close();
-            setConfirmedArray([]);
           }}
         >
           Close Window

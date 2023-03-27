@@ -11,29 +11,31 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function AddPropertyModalItem({ query, ID }) {
+function AddPropertyModalItem({ query, ID, clear }) {
   const [addWorksToTransfer] = useMutation(ADD_WORKS_TO_TRANSFER, {
     refetchQueries: [{ query: GET_OBJECT, variables: { id: ID } }],
   });
   const addPropertyToTransfer = (e) => {
     e.preventDefault();
-    query.map(({ artist, lot, objectNumber, saleNumber, title }) =>
-      addWorksToTransfer({
-        variables: {
-          id: ID,
-          transferInput: {
-            requestedProperty: [
-              {
-                artist: artist,
-                lot: lot,
-                objectNumber: objectNumber,
-                saleNumber: saleNumber,
-                title: title,
-              },
-            ],
+    query.map(
+      ({ artist, lot, objectNumber, saleNumber, title }) =>
+        addWorksToTransfer({
+          variables: {
+            id: ID,
+            transferInput: {
+              requestedProperty: [
+                {
+                  artist: artist,
+                  lot: lot,
+                  objectNumber: objectNumber,
+                  saleNumber: saleNumber,
+                  title: title,
+                },
+              ],
+            },
           },
-        },
-      })
+        }),
+      clear()
     );
   };
   if (typeof query !== "undefined" && query != null) {

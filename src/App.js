@@ -16,7 +16,6 @@ import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <div className="App">
-      <ToastContainer />
       <TopNav />
       <Routes>
         <Route path="/" element={<SideBar />} />
@@ -31,6 +30,7 @@ function App() {
         <Route path="/scan" element={<Scan />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

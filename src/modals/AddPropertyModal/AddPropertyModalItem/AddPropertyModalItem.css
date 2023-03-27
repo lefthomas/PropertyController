@@ -13,6 +13,7 @@
   height: min-content;
   width: min-content;
   padding: 1rem;
+  color: #ececec;
   background-color: #1c825d;
   border: none;
   border-radius: 5px;
@@ -20,9 +21,8 @@
 
 .property-modal-list-btn:hover {
   transition: all 0.5s ease-in-out;
-  color: lightgray;
-  border-color: lightgrey;
-  background-color: #005f2e;
+  color: slategray;
+  background-color: #25c48a;
 }
 
 .property-modal-list-btn:active {
