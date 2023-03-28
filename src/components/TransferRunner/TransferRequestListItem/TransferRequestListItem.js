@@ -30,7 +30,7 @@ function TransferRequestListItem({ ID }) {
 <p className="transfer-request-list-toggle">Collapse</p> */}
         <TransferRequestListItemImg
           imgSrc={getRandomInt()}
-          imgSize={100}
+          imgSize={75}
           expandImgSize={400}
         />
         <p className="transfer-request-list-item-">

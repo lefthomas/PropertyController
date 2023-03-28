@@ -1,9 +1,8 @@
 .transfer-request-list-item-container {
   display: grid;
   grid-template-columns: repeat(6, auto);
-  margin: 1rem;
+  border-radius: 5px;
   background-color: #d9d9d9;
-  padding: 1rem;
   align-items: center;
   justify-items: center;
   text-align: center;
