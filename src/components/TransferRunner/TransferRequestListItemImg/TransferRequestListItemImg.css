@@ -1,5 +1,6 @@
 .transfer-request-list-item-img-thumbnail {
   position: relative;
+  padding: 0.5rem;
 }
 .transfer-request-list-item-img {
   border-radius: 5px;

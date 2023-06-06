@@ -1,0 +1,63 @@
+.complete-modal-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10rem;
+  z-index: 100;
+}
+
+.complete-modal-container {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  display: grid;
+  background-color: #d9d9d9;
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+.complete-modal-header {
+  padding: 0 1rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.complete-modal-text {
+  font-size: 24px;
+  padding: 0 1rem;
+}
+
+.complete-modal-btn {
+  background-color: #d9d9d9;
+  border: none;
+  border-radius: 10px;
+  margin: 2rem;
+  padding: 1rem 2rem;
+  font-size: 24px;
+}
+
+.complete-modal-btn-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.complete-modal-btn-confirm {
+  background-color: #1c825d;
+  margin: 2rem;
+  font-size: 24px;
+}
+
+.complete-modal-btn-complete {
+  background-color: #ea5a5a;
+  margin: 2rem;
+}
+
+.complete-modal-btn:hover {
+  color: #ececec;
+  transition: all 0.3s ease-out;
+}

@@ -4,8 +4,8 @@ import TransferRequestListItemImg from "../TransferRequestListItemImg/TransferRe
 import { GET_OBJECT } from "../../../queries/queries";
 
 function getRandomInt(min, max) {
-  min = Math.ceil(2);
-  max = Math.floor(1084);
+  min = Math.ceil(min);
+  max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 function TransferRequestListItem({ ID }) {
@@ -26,11 +26,11 @@ function TransferRequestListItem({ ID }) {
   return data.getProperty.requestedProperty.map(
     ({ artist, lot, objectNumber, saleNumber, title }) => (
       <div className="transfer-request-list-item-container" key={objectNumber}>
-        {/* <p className="transfer-request-list-department">Department</p>
-<p className="transfer-request-list-toggle">Collapse</p> */}
+        <p className="transfer-request-list-department">Photo Department</p>
+        <p className="transfer-request-list-toggle">Collapse</p>
         <TransferRequestListItemImg
-          imgSrc={getRandomInt()}
-          imgSize={75}
+          imgSrc={getRandomInt(2, 1084)}
+          imgSize={100}
           expandImgSize={400}
         />
         <p className="transfer-request-list-item-">
@@ -45,9 +45,9 @@ function TransferRequestListItem({ ID }) {
         <p className="transfer-request-list-item-">
           Size
           <br />
-          10x10x10cm
+          {getRandomInt(10, 100)}x{getRandomInt(4, 20)}x{getRandomInt(10, 100)}
+          cm
         </p>
-        <p className="transfer-request-list-item-">Location</p>
         <p className="transfer-request-list-item-">
           Requested by <br /> Lewis Thomas
         </p>

@@ -1,11 +1,16 @@
 .transfer-request-list-item-container {
   display: grid;
-  grid-template-columns: repeat(6, auto);
+  grid-template-columns: repeat(5, 1fr);
   border-radius: 5px;
   background-color: #d9d9d9;
   align-items: center;
   justify-items: center;
   text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.transfer-request-list-toggle {
+  cursor: pointer;
 }
 
 .transfer-request-list-nothing-booked {
