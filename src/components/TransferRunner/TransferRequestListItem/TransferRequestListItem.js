@@ -26,8 +26,6 @@ function TransferRequestListItem({ ID }) {
   return data.getProperty.requestedProperty.map(
     ({ artist, lot, objectNumber, saleNumber, title }) => (
       <div className="transfer-request-list-item-container" key={objectNumber}>
-        <p className="transfer-request-list-department">Photo Department</p>
-        <p className="transfer-request-list-toggle">Collapse</p>
         <TransferRequestListItemImg
           imgSrc={getRandomInt(2, 1084)}
           imgSize={100}

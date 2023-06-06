@@ -9,10 +9,6 @@
   margin-bottom: 0.5rem;
 }
 
-.transfer-request-list-toggle {
-  cursor: pointer;
-}
-
 .transfer-request-list-nothing-booked {
   display: flex;
   align-items: center;

@@ -7,31 +7,32 @@ function TransferRunnerBtnBox({ ID, originLoc }) {
   const [isCancelOpen, setIsCancelOpen] = useState(false);
   const [isCompleteOpen, setIsCompleteOpen] = useState(false);
 
-  const handleCancelOpen = () => {
-    setIsCancelOpen(true);
+  const handleModalOpen = (modalType) => {
     // Disables Background Scrolling whilst the SideDrawer/Modal is open
-    if (typeof window != "undefined" && window.document) {
+    if (typeof window !== "undefined" && window.document) {
       document.body.style.overflow = "hidden";
     }
-  };
-  const handleCancelClose = () => {
-    setIsCancelOpen(false);
-    // Unsets Background Scrolling to use when SideDrawer/Modal is closed
-    document.body.style.overflow = "unset";
+
+    if (modalType === "cancel") {
+      setIsCancelOpen(true);
+    } else if (modalType === "complete") {
+      setIsCompleteOpen(true);
+    }
   };
 
-  const handleCompleteOpen = () => {
-    setIsCompleteOpen(true);
-    // Disables Background Scrolling whilst the SideDrawer/Modal is open
-    if (typeof window != "undefined" && window.document) {
-      document.body.style.overflow = "hidden";
+  const handleModalClose = (modalType) => {
+    // Unsets Background Scrolling to use when SideDrawer/Modal is closed
+    if (typeof window !== "undefined" && window.document) {
+      document.body.style.overflow = "unset";
+    }
+
+    if (modalType === "cancel") {
+      setIsCancelOpen(false);
+    } else if (modalType === "complete") {
+      setIsCompleteOpen(false);
     }
   };
-  const handleCompleteClose = () => {
-    setIsCompleteOpen(false);
-    // Unsets Background Scrolling to use when SideDrawer/Modal is closed
-    document.body.style.overflow = "unset";
-  };
+
   return (
     <div className="transfer-runner-btn-container">
       <button className="transfer-runner-btn transfer-runner-btn-pick">
@@ -45,26 +46,26 @@ function TransferRunnerBtnBox({ ID, originLoc }) {
       </button>
       <button
         className="transfer-runner-btn transfer-runner-btn-completed"
-        onClick={handleCompleteOpen}
+        onClick={() => handleModalOpen("complete")}
       >
         Mark As Completed
       </button>
       <CompleteModal
         ID={ID}
         open={isCompleteOpen}
-        close={handleCompleteClose}
+        close={() => handleModalClose("complete")}
         originLoc={originLoc}
       />
       <button
         className="transfer-runner-btn transfer-runner-btn-cancel"
-        onClick={handleCancelOpen}
+        onClick={() => handleModalOpen("cancel")}
       >
         Cancel Transfer
       </button>
       <CancelModal
         ID={ID}
         open={isCancelOpen}
-        close={handleCancelClose}
+        close={() => handleModalClose("cancel")}
         originLoc={originLoc}
       />
     </div>
