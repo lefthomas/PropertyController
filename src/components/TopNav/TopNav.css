@@ -1,6 +1,6 @@
 .top-nav {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   font-size: 34px;
   text-decoration: none;
   padding-bottom: 2rem;

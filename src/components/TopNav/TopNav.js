@@ -19,12 +19,12 @@ function TopNav() {
       <NavLink className="top-nav-btn" to="/hold">
         Hold
       </NavLink>
-      <NavLink className="top-nav-btn" to="/watch">
+      {/* <NavLink className="top-nav-btn" to="/watch">
         Watch
       </NavLink>
       <NavLink className="top-nav-btn" to="/scan">
         Scan
-      </NavLink>
+      </NavLink> */}
       {/* {user ? (
         <button onClick={onLogout}>Logout</button>
       ) : (
