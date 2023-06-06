@@ -25,6 +25,7 @@
   justify-self: center;
   border: none;
   transition: 0.5s;
+  cursor: pointer;
 }
 
 .glance-box-btn {
@@ -35,6 +36,7 @@
   color: #4b7bf6;
   font-size: 20px;
   background-color: #ececec;
+  cursor: pointer;
 }
 
 .not-booked-btn:hover {

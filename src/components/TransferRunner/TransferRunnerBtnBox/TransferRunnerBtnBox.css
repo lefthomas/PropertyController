@@ -11,6 +11,7 @@
   border-radius: 10px;
   margin: 0.3rem;
   font-size: 20px;
+  cursor: pointer;
 }
 
 .transfer-runner-btn:hover {
