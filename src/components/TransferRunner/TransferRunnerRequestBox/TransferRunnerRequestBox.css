@@ -19,6 +19,7 @@
   border-radius: 10px;
   cursor: pointer;
 }
+
 .transfer-runner-request-btn-request {
   grid-column: 2;
   justify-self: center;
@@ -31,6 +32,10 @@
   border: none;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.transfer-runner-request-btn-request-active {
+  background-color: #f26363;
 }
 .transfer-runner-request-btn-toggle {
   grid-column: 3;

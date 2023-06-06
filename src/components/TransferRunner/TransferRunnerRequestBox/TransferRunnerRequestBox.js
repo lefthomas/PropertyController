@@ -2,7 +2,13 @@ import AddPropertyModal from "../../../modals/AddPropertyModal/AddPropertyModal"
 import React, { useState } from "react";
 import "./TransferRunnerRequestBox.css";
 
-function TransferRunnerRequestBox({ ID }) {
+function TransferRunnerRequestBox({
+  ID,
+  toggleCollapse,
+  toggleSelect,
+  collapse,
+  select,
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => {
@@ -20,18 +26,33 @@ function TransferRunnerRequestBox({ ID }) {
 
   return (
     <div className="transfer-runner-request-container">
-      <button className="transfer-runner-request-btn transfer-runner-request-btn-select">
+      <button
+        className="transfer-runner-request-btn-select"
+        onClick={toggleSelect}
+      >
         Select
       </button>
-      <button
-        className="transfer-runner-request-btn transfer-runner-request-btn-request"
-        onClick={handleOpen}
-      >
-        Request Work
-      </button>
+      {select ? (
+        <button
+          className="transfer-runner-request-btn-request transfer-runner-request-btn-request-active"
+          onClick={handleOpen}
+        >
+          Delete Selected
+        </button>
+      ) : (
+        <button
+          className="transfer-runner-request-btn-request"
+          onClick={handleOpen}
+        >
+          Request Work
+        </button>
+      )}
       <AddPropertyModal ID={ID} open={isOpen} close={handleClose} />
-      <button className="transfer-runner-request-btn transfer-runner-request-btn-toggle">
-        Expand / Collapse All
+      <button
+        className="transfer-runner-request-btn transfer-runner-request-btn-toggle"
+        onClick={toggleCollapse}
+      >
+        {collapse ? "Expand All" : "Collapse All"}
       </button>
     </div>
   );

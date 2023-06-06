@@ -5,8 +5,19 @@ import TransferRunnerRequestBox from "./TransferRunnerRequestBox/TransferRunnerR
 import TransferRequestList from "./TransferRequestList/TransferRequestList";
 import { useQuery } from "@apollo/client";
 import { GET_TRANSFERS } from "../../queries/queries";
+import { useState } from "react";
 
 function TransferRunner({ originLoc }) {
+  const [collapse, setCollapse] = useState(false);
+  const [select, setSelect] = useState(false);
+
+  const toggleCollapse = () => {
+    setCollapse(!collapse);
+  };
+
+  const toggleSelect = () => {
+    setSelect(!select);
+  };
   const { loading, error, data } = useQuery(GET_TRANSFERS, {
     variables: { originLocation: originLoc },
   });
@@ -36,8 +47,18 @@ function TransferRunner({ originLoc }) {
             departureDate={departureDate}
           />
           <TransferRunnerBtnBox ID={_id} originLoc={originLoc} />
-          <TransferRunnerRequestBox ID={_id} />
-          <TransferRequestList ID={_id} />
+          <TransferRunnerRequestBox
+            ID={_id}
+            toggleCollapse={toggleCollapse}
+            toggleSelect={toggleSelect}
+            collapse={collapse}
+            select={select}
+          />
+          <TransferRequestList
+            ID={_id}
+            toggleCollapse={toggleCollapse}
+            collapse={collapse}
+          />
         </div>
         {/* {originLoc !== "Archive" && <BookTransfer originLoc={originLoc} />} */}
       </div>
