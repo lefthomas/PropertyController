@@ -1,25 +1,9 @@
 import "./CompleteModal.css";
 import ReactDom from "react-dom";
-import { useMutation } from "@apollo/client";
-import { GET_TRANSFERS, GET_GLANCE_BOX } from "../../queries/queries";
-import { CANCEL_TRANSFER } from "../../mutations/mutations";
 
-function CompleteModal({ originLoc, ID, close, open }) {
-  const [addWorksToHold] = useMutation(CANCEL_TRANSFER, {
-    refetchQueries: [
-      { query: GET_TRANSFERS, variables: { originLocation: originLoc } },
-      { query: GET_GLANCE_BOX, variables: { LWH: "LWH", BSQ: "BSQ" } },
-    ],
-  });
-
+function CompleteModal({ close, open }) {
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    addWorksToHold({
-      variables: {
-        id: ID,
-      },
-    });
 
     close();
   };
