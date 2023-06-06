@@ -1,5 +1,6 @@
 import "./TransferRequestListItem.css";
 import { useQuery } from "@apollo/client";
+import { useMediaQuery } from "react-responsive";
 import TransferRequestListItemImg from "../TransferRequestListItemImg/TransferRequestListItemImg";
 import { GET_OBJECT } from "../../../queries/queries";
 
@@ -9,6 +10,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 function TransferRequestListItem({ ID, collapse }) {
+  const isMobile = useMediaQuery({ maxWidth: 1000 });
   const { loading, error, data } = useQuery(GET_OBJECT, {
     variables: { id: ID },
   });
@@ -35,7 +37,7 @@ function TransferRequestListItem({ ID, collapse }) {
       <div className="transfer-request-list-item-container" key={objectNumber}>
         <TransferRequestListItemImg
           imgSrc={getRandomInt(2, 1084)}
-          imgSize={100}
+          imgSize={isMobile ? 50 : 100}
           expandImgSize={400}
         />
         <p className="transfer-request-list-item-">
@@ -47,15 +49,20 @@ function TransferRequestListItem({ ID, collapse }) {
           {artist.length > 25 ? `${artist.substring(0, 25)}...` : artist} <br />
           {title.length > 25 ? `${title.substring(0, 25)}...` : title}
         </p>
-        <p className="transfer-request-list-item-">
-          Size
-          <br />
-          {getRandomInt(10, 100)}x{getRandomInt(4, 20)}x{getRandomInt(10, 100)}
-          cm
-        </p>
-        <p className="transfer-request-list-item-">
-          Requested by <br /> Lewis Thomas
-        </p>
+        {isMobile ? null : (
+          <p className="transfer-request-list-item-">
+            Size
+            <br />
+            {getRandomInt(10, 100)}x{getRandomInt(4, 20)}x
+            {getRandomInt(10, 100)}
+            cm
+          </p>
+        )}
+        {isMobile ? null : (
+          <p className="transfer-request-list-item-">
+            Requested by <br /> Lewis Thomas
+          </p>
+        )}
       </div>
     )
   );

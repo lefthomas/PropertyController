@@ -26,32 +26,26 @@ function TransferRunnerRequestBox({
 
   return (
     <div className="transfer-runner-request-container">
-      <button
-        className="transfer-runner-request-btn-select"
-        onClick={toggleSelect}
-      >
+      <button className="transfer-runner-request-btn" onClick={toggleSelect}>
         Select
       </button>
       {select ? (
         <button
-          className="transfer-runner-request-btn-request transfer-runner-request-btn-request-active"
+          className="transfer-runner-request-btn transfer-runner-request-btn-request-active"
           onClick={handleOpen}
         >
           Delete Selected
         </button>
       ) : (
         <button
-          className="transfer-runner-request-btn-request"
+          className="transfer-runner-request-btn transfer-runner-request-btn-request"
           onClick={handleOpen}
         >
           Request Work
         </button>
       )}
       <AddPropertyModal ID={ID} open={isOpen} close={handleClose} />
-      <button
-        className="transfer-runner-request-btn transfer-runner-request-btn-toggle"
-        onClick={toggleCollapse}
-      >
+      <button className="transfer-runner-request-btn" onClick={toggleCollapse}>
         {collapse ? "Expand All" : "Collapse All"}
       </button>
     </div>

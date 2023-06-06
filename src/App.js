@@ -1,3 +1,5 @@
+import React from "react";
+import { useMediaQuery } from "react-responsive";
 import "./App.css";
 
 import Transfer from "./views/Transfer/Transfer";
@@ -14,13 +16,17 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 function App() {
+  const isMobile = useMediaQuery({ maxWidth: 1000 });
+
   return (
     <div className="App">
       <TopNav />
-      <Routes>
-        <Route path="/" element={<SideBar />} />
-        <Route path="/hold" element={<HoldSideBar />} />
-      </Routes>
+      {isMobile ? null : (
+        <Routes>
+          <Route path="/" element={<SideBar />} />
+          <Route path="/hold" element={<HoldSideBar />} />
+        </Routes>
+      )}
       <Routes>
         <Route path="/" element={<Transfer />} />
         <Route path="/hold" element={<Hold />} />

@@ -7,3 +7,10 @@
   column-gap: 2rem;
   padding: 4rem;
 }
+
+@media (max-width: 1000px) {
+  .App {
+    grid-template-columns: auto;
+    padding: 1rem;
+  }
+}

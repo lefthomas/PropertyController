@@ -20,13 +20,19 @@
   cursor: pointer;
 }
 
+@media (max-width: 1000px) {
+  .loc-bar-btn {
+    font-size: 14px;
+    padding: 0.5rem;
+  }
+}
+
 .loc-bar-btn-active {
   background-color: #62ad91;
   color: white;
   border-radius: 5px;
   border-style: solid;
   border-color: #1c825d;
-  font-size: 20px;
   cursor: pointer;
 }
 

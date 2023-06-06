@@ -6,20 +6,11 @@
   border-radius: 5px;
 }
 
-.not-booked-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 48px;
-}
-
 .not-booked-btn {
   display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #1c825d;
   font-size: 32px;
-  border-radius: 20px;
+  border-radius: 5px;
   padding: 0.5rem 2rem;
   align-self: center;
   justify-self: center;
@@ -28,18 +19,19 @@
   cursor: pointer;
 }
 
-.glance-box-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  color: #4b7bf6;
-  font-size: 20px;
-  background-color: #ececec;
-  cursor: pointer;
-}
-
 .not-booked-btn:hover {
   color: #ececec;
   background-color: #25c48a;
+}
+
+@media (max-width: 1000px) {
+  .not-booked-container {
+    padding: 0.5rem;
+    column-gap: 0.5rem;
+  }
+
+  .not-booked-btn {
+    font-size: 10px;
+    padding: 0.5rem;
+  }
 }

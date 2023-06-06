@@ -102,7 +102,6 @@
   border: none;
   background-color: white;
   border-radius: 5px;
-  border: none;
   overflow: auto;
   outline: none;
   box-shadow: none;
@@ -162,4 +161,26 @@
   justify-self: center;
   margin-bottom: 0;
   height: 4rem;
+}
+
+@media (max-width: 1000px) {
+  .property-modal-container {
+    z-index: 101;
+    display: grid;
+    grid-template-rows: min-content min-content max-content min-content;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .property-modal-btn-close {
+    padding: 1rem 2rem;
+    margin: 1rem;
+    font-size: 12px;
+    height: 4rem;
+  }
+
+  .property-modal-not-on-inventory-text-input {
+    width: 100%;
+    height: 2rem;
+  }
 }

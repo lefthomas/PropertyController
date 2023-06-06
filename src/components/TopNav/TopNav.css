@@ -10,6 +10,13 @@
   grid-row: 1;
 }
 
+@media (max-width: 1000px) {
+  .top-nav {
+    font-size: 20px;
+    padding-bottom: 1rem;
+  }
+}
+
 .top-nav-btn {
   text-decoration: none;
   color: #000000;
