@@ -23,10 +23,7 @@
 .loc-bar-btn-active {
   background-color: #62ad91;
   color: white;
-  border-radius: 5px;
-  border-style: solid;
   border-color: #1c825d;
-  cursor: pointer;
 }
 
 .loc-bar-btn:hover {
