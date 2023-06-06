@@ -4,7 +4,6 @@ import React, { useState } from "react";
 
 function TransferRequestList({ ID, children }) {
   const [collapse, setCollapse] = useState(false);
-  const childCount = React.Children.count(children);
 
   const toggle = () => {
     setCollapse(!collapse);
@@ -13,13 +12,9 @@ function TransferRequestList({ ID, children }) {
     <div className="transfer-request-list-border">
       <p className="transfer-request-list-department">Photo Department</p>
       <p onClick={toggle} className="transfer-request-list-toggle">
-        Collapse
+        {collapse ? "Expand" : "Collapse"}
       </p>
-      {collapse ? (
-        <p>{childCount} works requested</p>
-      ) : (
-        <TransferRequestListItem ID={ID} />
-      )}
+      <TransferRequestListItem ID={ID} collapse={collapse} />
     </div>
   );
 }

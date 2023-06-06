@@ -8,7 +8,7 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-function TransferRequestListItem({ ID }) {
+function TransferRequestListItem({ ID, collapse }) {
   const { loading, error, data } = useQuery(GET_OBJECT, {
     variables: { id: ID },
   });
@@ -20,6 +20,13 @@ function TransferRequestListItem({ ID }) {
     return (
       <p className="transfer-request-list-nothing-booked">
         No works currently booked
+      </p>
+    );
+
+  if (collapse)
+    return (
+      <p className="transfer-request-list-nothing-booked">
+        {data.getProperty.requestedProperty.length} Works Requested
       </p>
     );
 
